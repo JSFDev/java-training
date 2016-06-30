@@ -1,31 +1,56 @@
 package com.platzi.simple;
 
+import com.platzi.simple.constants.Messages;
+
+/**
+ * Create a custom message by arguments program entry
+ */
 public class Hello {
-    private boolean isReady = false;
-    private static final String YO = "buddy";
-    private static final String WORLD = "world";
+    private final boolean isInitProgramByArgs;
+    private String output;
+    private String[] args;
 
-    public static void main(String[] args){
-        // this.isReady = true;
-
-        String hello = "";
-        try {
-            hello += "Number arguments: " + args.length;
-            hello += "\nFirst argument: " + args[0];
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            hello = "There is no console arguments.";
-        }
-
-        System.out.println(hello);
-
-        // System.out.println(this.sayHello());
+    public Hello(String[] args) {
+        byte numArgs = (byte) args.length;
+        this.args = args;
+        this.isInitProgramByArgs = numArgs > 0;
     }
 
-    private String sayHello() {
-        String text = "Hello ";
+    public static void main(String[] args){
+        Hello message = new Hello(args);
+        message.setMessageByArguments();
+        System.out.println(message.getOutput());
+    }
 
-        text += (this.isReady) ? YO : WORLD;
-        return text;
+    public void setMessageByArguments() {
+        try {
+            if (this.isInitProgramByArgs) {
+                this.setOutput(this.printFirstArgument(this.args));
+
+            } else {
+                this.setOutput(this.sayHello());
+            }
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            this.setOutput(Messages.NOARGSERROR.getValue());
+        }
+    }
+
+    public String printFirstArgument(String[] args) {
+        return Messages.TITLENUMARGS.getValue() +
+                Messages.FIRST.getValue() +
+                Messages.ARGS.getValue() + args[0];
+    }
+
+    public String sayHello() {
+        return Messages.getRandomGreet().getValue();
+    }
+
+    public String getOutput() {
+        return this.output;
+    }
+
+    public void setOutput(String output) {
+        this.output = output;
     }
 }
