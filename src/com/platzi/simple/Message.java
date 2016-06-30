@@ -5,19 +5,19 @@ import com.platzi.simple.constants.Messages;
 /**
  * Create a custom message by arguments program entry
  */
-public class Hello {
+public class Message {
     private final boolean isInitProgramByArgs;
     private String output;
     private String[] args;
 
-    public Hello(String[] args) {
+    public Message(String[] args) {
         byte numArgs = (byte) args.length;
         this.args = args;
         this.isInitProgramByArgs = numArgs > 0;
     }
-
+    
     public static void main(String[] args){
-        Hello message = new Hello(args);
+        Message message = new Message(args);
         message.setMessageByArguments();
         System.out.println(message.getOutput());
     }
