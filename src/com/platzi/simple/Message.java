@@ -15,8 +15,8 @@ public class Message {
         this.args = args;
         this.isInitProgramByArgs = numArgs > 0;
     }
-    
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Message message = new Message(args);
         message.setMessageByArguments();
         System.out.println(message.getOutput());

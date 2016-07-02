@@ -23,7 +23,7 @@ public enum Messages {
     }
 
     public void printAllMessages() {
-        for (Messages message: Messages.values()) {
+        for (Messages message : Messages.values()) {
             System.out.println(message + ": " + message.getValue());
         }
     }
