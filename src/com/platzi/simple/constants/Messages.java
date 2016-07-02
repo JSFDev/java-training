@@ -6,6 +6,7 @@ public enum Messages {
     ARGS(" argument: "),
     FIRST("\nFirst"),
     GREETNAME("Hello buddy."),
+    METERS("meters"),
     GREETWORLD("Hello world.");
 
     private String message;
