@@ -1,6 +1,5 @@
 package com.platzi.simple.constants;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public enum Skills {
@@ -30,7 +29,6 @@ public enum Skills {
 
         return isValid;
     }
-
 
     public String getValue() {
         return this.skillValue;

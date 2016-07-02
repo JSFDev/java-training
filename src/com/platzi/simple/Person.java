@@ -8,9 +8,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- * Simple object
- */
 public class Person {
     public final byte ADULT_YEARS = 18;
     public final byte RETIREMENT_YEARS = 65;
@@ -27,16 +24,6 @@ public class Person {
         this.height = height;
         this.monthSalary = monthSalary;
         this.yearSalary = yearSalary;
-    }
-
-    public static void main(String[] args) {
-        Person me = new Person(1.85F, (short) 1300, 19000);
-        me.setMyCalendarBirthDate((short) 1985, (byte) Calendar.DECEMBER, (byte) 11);
-        me.setMyYearsFromBirthDate();
-        me.setMySkillList();
-        System.out.println(me.toStringYears());
-        System.out.println(me.toStringHeight());
-        System.out.println(me.toStringSkills());
     }
 
     public void setMySkillList() {
@@ -90,7 +77,7 @@ public class Person {
         return "Personal years: " + this.getYears();
     }
 
-    private String toStringSkills() {
+    public String toStringSkills() {
         String message = "";
 
         for (Skills skill : this.tecnicalSkillList) {
