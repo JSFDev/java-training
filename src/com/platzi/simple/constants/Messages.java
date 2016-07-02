@@ -6,25 +6,34 @@ public enum Messages {
     ARGS(" argument: "),
     FIRST("\nFirst"),
     GREETNAME("Hello buddy."),
-    GREETWORLD("Hello world.");
+    METERS("meters"),
+    GREETWORLD("Hello world."),
+    PRINT_SCANNER("Print arguments separated by space"),
+    SPACE_SEPARATOR("\\s");
 
-    private String message;
+    private String messageValue;
+    private String messageName;
 
     Messages(String message) {
-        this.message = message;
+        this.messageValue = message;
+        this.messageName = this.name();
     }
 
     public String getValue() {
-        return this.message;
+        return this.messageValue;
+    }
+
+    public String getName() {
+        return this.messageName;
     }
 
     public static Messages getRandomGreet() {
-        return Math.random() < 0.5 ? GREETNAME : GREETWORLD;
+        return Math.random() < 0.5 ? Messages.GREETNAME : Messages.GREETWORLD;
     }
 
     public void printAllMessages() {
         for (Messages message : Messages.values()) {
-            System.out.println(message + ": " + message.getValue());
+            System.out.println(message.getName() + ": " + message.getValue());
         }
     }
 }

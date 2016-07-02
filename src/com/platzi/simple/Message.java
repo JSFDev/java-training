@@ -2,42 +2,28 @@ package com.platzi.simple;
 
 import com.platzi.simple.constants.Messages;
 
-/**
- * Create a custom message by arguments program entry
- */
 public class Message {
     private final boolean isInitProgramByArgs;
     private String output;
-    private String[] args;
+    private String[] args = new String[4];
 
-    public Message(String[] args) {
+    public Message(String[] args) throws ArrayIndexOutOfBoundsException {
         byte numArgs = (byte) args.length;
-        this.args = args;
         this.isInitProgramByArgs = numArgs > 0;
-    }
-
-    public static void main(String[] args) {
-        Message message = new Message(args);
-        message.setMessageByArguments();
-        System.out.println(message.getOutput());
+        this.args = args;
     }
 
     public void setMessageByArguments() {
-        try {
-            if (this.isInitProgramByArgs) {
-                this.setOutput(this.printFirstArgument(this.args));
+        if (this.isInitProgramByArgs) {
+            this.setOutput(this.printFirstArgument(this.args));
 
-            } else {
-                this.setOutput(this.sayHello());
-            }
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            this.setOutput(Messages.NOARGSERROR.getValue());
+        } else {
+            this.setOutput(this.sayHello());
         }
     }
 
     public String printFirstArgument(String[] args) {
-        return Messages.TITLENUMARGS.getValue() +
+        return Messages.TITLENUMARGS.getValue() + this.args.length +
                 Messages.FIRST.getValue() +
                 Messages.ARGS.getValue() + args[0];
     }
