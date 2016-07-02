@@ -8,36 +8,36 @@ import com.platzi.simple.constants.Messages;
 public class Message {
     private final boolean isInitProgramByArgs;
     private String output;
-    private String[] args;
+    private String[] args = new String[4];
 
-    public Message(String[] args) {
+    public Message(String[] args) throws ArrayIndexOutOfBoundsException {
         byte numArgs = (byte) args.length;
-        this.args = args;
         this.isInitProgramByArgs = numArgs > 0;
+        this.args = args;
     }
 
     public static void main(String[] args) {
-        Message message = new Message(args);
-        message.setMessageByArguments();
-        System.out.println(message.getOutput());
+        try {
+            Message message = new Message(args);
+            message.setMessageByArguments();
+            System.out.print(message.getOutput());
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.print(Messages.NOARGSERROR.getValue());
+        }
     }
 
     public void setMessageByArguments() {
-        try {
-            if (this.isInitProgramByArgs) {
-                this.setOutput(this.printFirstArgument(this.args));
+        if (this.isInitProgramByArgs) {
+            this.setOutput(this.printFirstArgument(this.args));
 
-            } else {
-                this.setOutput(this.sayHello());
-            }
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            this.setOutput(Messages.NOARGSERROR.getValue());
+        } else {
+            this.setOutput(this.sayHello());
         }
     }
 
     public String printFirstArgument(String[] args) {
-        return Messages.TITLENUMARGS.getValue() +
+        return Messages.TITLENUMARGS.getValue() + this.args.length +
                 Messages.FIRST.getValue() +
                 Messages.ARGS.getValue() + args[0];
     }
