@@ -20,8 +20,8 @@ public enum Skills {
 
         for (Skills skill : Skills.values()) {
             if (!selected.isEmpty() ||
-                    Objects.equals(selected, skill.name().toLowerCase()) ||
-                    Objects.equals(selected, skill.toString().toLowerCase())) {
+                    Objects.equals(selected, skill.getName().toLowerCase()) ||
+                    Objects.equals(selected, skill.getValue().toLowerCase())) {
                 isValid = true;
                 break;
             }
