@@ -1,9 +1,11 @@
 package com.test.platzi.simple;
 
+import com.java.platzi.simple.Developer;
 import com.java.platzi.simple.Message;
-import com.java.platzi.simple.Person;
 import com.java.platzi.simple.constants.Messages;
+import com.java.platzi.simple.constants.Skills;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -46,10 +48,9 @@ public class Test {
     }
 
     private static void shouldHavePersonProperties() {
-        Person me = new Person(1.85F, (short) 1300, 19000);
+        ArrayList<Skills> myDevSkills = Developer.getDefaultSkillList();
+        Developer me = new Developer(1.85F, (short) 1300, 19000, myDevSkills);
         me.setMyCalendarBirthDate((short) 1985, (byte) Calendar.DECEMBER, (byte) 11);
-        me.setMyYearsFromBirthDate();
-        me.setMySkillList();
         System.out.println(me.toStringYears());
         System.out.println(me.toStringHeight());
         System.out.println(me.toStringSkills());
