@@ -1,8 +1,9 @@
-package com.platzi.simple;
+package com.java.platzi.simple;
 
-import com.platzi.simple.constants.Messages;
+import com.java.platzi.simple.constants.Messages;
 
 public class Message {
+
     private final boolean isInitProgramByArgs;
     private String output;
     private String[] args = new String[4];

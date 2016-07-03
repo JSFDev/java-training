@@ -1,7 +1,7 @@
-package com.platzi.simple;
+package com.java.platzi.simple;
 
-import com.platzi.simple.constants.Messages;
-import com.platzi.simple.constants.Skills;
+import com.java.platzi.simple.constants.Messages;
+import com.java.platzi.simple.constants.Skills;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Person {
+
     public final byte ADULT_YEARS = 18;
     public final byte RETIREMENT_YEARS = 65;
     public final String METRIC_SYSTEM = Messages.METERS.getValue();

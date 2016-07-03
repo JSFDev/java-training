@@ -1,4 +1,4 @@
-package com.platzi.simple.constants;
+package com.java.platzi.simple.constants;
 
 public enum Messages {
     NOARGSERROR("There is no console arguments."),
@@ -31,9 +31,13 @@ public enum Messages {
         return Math.random() < 0.5 ? Messages.GREETNAME : Messages.GREETWORLD;
     }
 
-    public void printAllMessages() {
+    public String getAllMessages() {
+        String print = "";
+
         for (Messages message : Messages.values()) {
-            System.out.println(message.getName() + ": " + message.getValue());
+            print += message.getName() + ": " + message.getValue();
         }
+
+        return print;
     }
 }
