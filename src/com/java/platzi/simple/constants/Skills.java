@@ -3,9 +3,9 @@ package com.java.platzi.simple.constants;
 import java.util.Objects;
 
 public enum Skills {
-    FRONT("frontend developer"),
-    BACK("backend developer"),
-    DB("database administrator");
+    FRONT("frontend developer."),
+    BACK("backend developer."),
+    DB("database administrator.");
 
     private String skillValue;
     private String skillName;
