@@ -49,10 +49,11 @@ public class Test {
 
     private static void shouldHavePersonProperties() {
         ArrayList<Skills> myDevSkills = Developer.getDefaultSkillList();
-        Developer me = new Developer(1.85F, (short) 1300, 19000, myDevSkills);
+        Developer me = new Developer(1.85F, (short) 1300, myDevSkills);
         me.setMyCalendarBirthDate((short) 1985, (byte) Calendar.DECEMBER, (byte) 11);
         System.out.println(me.toStringYears());
         System.out.println(me.toStringHeight());
         System.out.println(me.toStringSkills());
+        System.out.println(me.toStringFinancialData());
     }
 }

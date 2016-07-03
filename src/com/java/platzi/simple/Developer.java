@@ -1,20 +1,19 @@
 package com.java.platzi.simple;
 
+import com.java.platzi.simple.constants.Messages;
 import com.java.platzi.simple.constants.Skills;
 
 import java.util.ArrayList;
 
 public class Developer extends Person {
+    final byte ADULT_YEARS = 18;
+    final byte RETIREMENT_YEARS = 65;
 
-    private short monthSalary;
-    private int yearSalary;
-    private ArrayList<Skills> tecnicalSkillList;
+    private ArrayList<Skills> technicalSkillList;
 
-    public Developer(float height, short monthSalary, int yearSalary, ArrayList<Skills> skills) {
-        super(height);
-        this.monthSalary = monthSalary;
-        this.yearSalary = yearSalary;
-        this.setTecnicalSkillList(skills);
+    public Developer(float height, short monthSalary, ArrayList<Skills> skills) {
+        super(height, monthSalary);
+        this.setTechnicalSkillList(skills);
     }
 
     public static ArrayList<Skills> getDefaultSkillList() {
@@ -30,29 +29,35 @@ public class Developer extends Person {
         return validYears <= 0 ? -1 : validYears;
     }
 
-    public void setTecnicalSkillList(ArrayList<Skills> tecnicalSkillList) {
-        this.tecnicalSkillList = tecnicalSkillList == null ? Developer.getDefaultSkillList() : tecnicalSkillList;
+    public void setTechnicalSkillList(ArrayList<Skills> technicalSkillList) {
+        this.technicalSkillList = technicalSkillList == null ? Developer.getDefaultSkillList() : technicalSkillList;
     }
 
-    public byte getYearsToRetirement() {
+    private byte getYearsToRetirement() {
         return getValidateYears(RETIREMENT_YEARS);
     }
 
-    public byte getYearsToBeAdult() {
+    private byte getYearsToBeAdult() {
         return getValidateYears(ADULT_YEARS);
-    }
-
-    public byte getYearsOfWorkQuote() {
-        return RETIREMENT_YEARS - ADULT_YEARS;
     }
 
     public String toStringSkills() {
         String message = "";
 
-        for (Skills skill : this.tecnicalSkillList) {
-            message += "\nPersonal skill " + skill.getName() + ": " + skill.getValue();
+        for (Skills skill : this.technicalSkillList) {
+            message += Messages.PERSONAL_SKILLS.getValue() + skill.getName() + ": " + skill.getValue();
         }
 
+        return message;
+    }
+
+    @Override
+    public String toStringFinancialData() {
+        String message = super.toStringFinancialData();
+
+        message += this.getYearsToBeAdult() != -1 ? Messages.YEARS_MINOR.getValue() : "";
+        message += Messages.YEARS_RETIREMENT.getValue();
+        message += this.getYearsToRetirement() != -1 ? this.getYearsToRetirement() + Messages.YEARS.getValue() : Messages.YEARS_OLDER.getValue();
         return message;
     }
 }

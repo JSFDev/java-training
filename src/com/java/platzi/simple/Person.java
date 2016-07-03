@@ -7,17 +7,16 @@ import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
 public class Person {
-
-    protected final byte ADULT_YEARS = 18;
-    protected final byte RETIREMENT_YEARS = 65;
-    protected final String METRIC_SYSTEM = Messages.METERS.getValue();
+    private final String METRIC_SYSTEM = Messages.METERS.getValue();
 
     private Calendar birthDate;
     private byte year;
     private float height;
+    private short monthSalary;
 
-    public Person(float height) {
+    public Person(float height, short monthSalary) {
         this.height = height;
+        this.monthSalary = monthSalary;
     }
 
     public void setMyCalendarBirthDate(short year, byte month, byte day) {
@@ -39,13 +38,17 @@ public class Person {
     }
 
     public String toStringHeight() {
-        String message = "Personal stature: " + String.valueOf((int) this.height) + " " + METRIC_SYSTEM;
+        String message = "Personal stature: " + String.valueOf((int) this.height) + METRIC_SYSTEM;
 
         if (this.height % 1 != 0) {
-            message += ", exactly: " + String.valueOf(this.height) + " " + METRIC_SYSTEM;
+            message += ", exactly: " + String.valueOf(this.height) + METRIC_SYSTEM;
         }
 
         return message;
+    }
+
+    public String toStringFinancialData() {
+        return "Monthly salary: " + this.getMonthSalary();
     }
 
     public String toStringYears() {
@@ -58,5 +61,9 @@ public class Person {
 
     public void setYear(byte year) {
         this.year = year;
+    }
+
+    public short getMonthSalary() {
+        return monthSalary;
     }
 }

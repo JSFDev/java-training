@@ -6,9 +6,15 @@ public enum Messages {
     ARGS(" argument: "),
     FIRST("\nFirst"),
     GREETNAME("Hello buddy."),
-    METERS("meters"),
+    METERS(" meters."),
+    YEARS(" years."),
     GREETWORLD("Hello world."),
     PRINT_SCANNER("Print arguments separated by space"),
+    PERSONAL_SKILLS("\nPersonal skill "),
+    YEARS_ADULT("\nYears to Be Adult: "),
+    YEARS_MINOR("\nThis is a minor Boy" ),
+    YEARS_OLDER("\nthis man is retired"),
+    YEARS_RETIREMENT("\nYears to Retirement: "),
     SPACE_SEPARATOR("\\s");
 
     private String messageValue;
