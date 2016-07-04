@@ -3,16 +3,19 @@ package com.java.platzi.simple;
 import com.java.platzi.simple.constants.Messages;
 import com.java.platzi.simple.constants.Skills;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Developer extends Person {
+    private final String DOCUMENTS_ROUTE = "/home/fernando/htdocs/java-training/src/com/java/platzi/simple";
+    private final String DOCUMENT_INFORMATION = "/documents/developersInformation.txt";
     final byte ADULT_YEARS = 18;
     final byte RETIREMENT_YEARS = 65;
 
     private ArrayList<Skills> technicalSkillList;
 
-    public Developer(float height, short monthSalary, ArrayList<Skills> skills) {
-        super(height, monthSalary);
+    public Developer(String name, float height, short monthSalary, ArrayList<Skills> skills) {
+        super(name, height, monthSalary);
         this.setTechnicalSkillList(skills);
     }
 
@@ -52,12 +55,34 @@ public class Developer extends Person {
     }
 
     @Override
-    public String toStringFinancialData() {
+    protected String toStringFinancialData() {
         String message = super.toStringFinancialData();
 
         message += this.getYearsToBeAdult() != -1 ? Messages.YEARS_MINOR.getValue() : "";
         message += Messages.YEARS_RETIREMENT.getValue();
         message += this.getYearsToRetirement() != -1 ? this.getYearsToRetirement() + Messages.YEARS.getValue() : Messages.YEARS_OLDER.getValue();
         return message;
+    }
+
+    @Override
+    protected String getPersonalData() {
+        return Messages.LINE_WRAP_DOCUMENT_SEGMENTS.getValue() +
+                super.getPersonalData() +
+                this.toStringSkills() +
+                this.toStringFinancialData();
+    }
+
+    public void printInformationInDocument() {
+        try {
+            FileWriter document = new FileWriter(DOCUMENTS_ROUTE + DOCUMENT_INFORMATION);
+            document.write(this.getPersonalData());
+            document.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public String readInformationFromDocument() {
+        return "reading front file.";
     }
 }

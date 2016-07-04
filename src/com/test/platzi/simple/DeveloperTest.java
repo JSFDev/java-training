@@ -21,11 +21,9 @@ public class DeveloperTest implements Runnable {
 
     private static void shouldInitializeProperties() {
         ArrayList<Skills> myDevSkills = Developer.getDefaultSkillList();
-        Developer me = new Developer(1.85F, (short) 1300, myDevSkills);
-        me.setMyCalendarBirthDate((short) 1985, (byte) Calendar.DECEMBER, (byte) 11);
-        System.out.println(me.toStringYears());
-        System.out.println(me.toStringHeight());
-        System.out.println(me.toStringSkills());
-        System.out.println(me.toStringFinancialData());
+        Developer emilio = new Developer("Emilio Sanchez", 1.85F, (short) 1300, myDevSkills);
+        emilio.setMyCalendarBirthDate((short) 1985, (byte) Calendar.DECEMBER, (byte) 11);
+        emilio.printInformationInDocument();
+        System.out.println(emilio.readInformationFromDocument());
     }
 }

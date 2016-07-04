@@ -1,0 +1,11 @@
+
+#-----------------------------#
+
+Developer: Emilio Sanchez
+Personal years: 30
+Personal stature: 1 meters.", exactly: "1 meters.
+Personal skill FRONT: frontend developer.
+Personal skill BACK: backend developer.
+Personal skill DB: database administrator.
+Monthly salary: 1300
+Years to Retirement: 35 years.
