@@ -13,8 +13,10 @@ public class Person {
     private byte year;
     private float height;
     private short monthSalary;
+    private String name;
 
-    public Person(float height, short monthSalary) {
+    public Person(String name, float height, short monthSalary) {
+        this.name = name;
         this.height = height;
         this.monthSalary = monthSalary;
     }
@@ -38,21 +40,32 @@ public class Person {
     }
 
     public String toStringHeight() {
-        String message = "Personal stature: " + String.valueOf((int) this.height) + METRIC_SYSTEM;
+        String height = String.valueOf((int) this.height) + METRIC_SYSTEM;
+        String message = Messages.PERSONAL_STATURE.getValue() + height;
 
         if (this.height % 1 != 0) {
-            message += ", exactly: " + String.valueOf(this.height) + METRIC_SYSTEM;
+            message += Messages.PERSONAL_STATURE_FIX.getValue() + height;
         }
 
         return message;
     }
 
-    public String toStringFinancialData() {
-        return "Monthly salary: " + this.getMonthSalary();
+    protected String getPersonalData() {
+        return this.toStringTitle() +
+                this.toStringYears() +
+                this.toStringHeight();
+    }
+
+    protected String toStringFinancialData() {
+        return Messages.PERSONAL_SALARY.getValue() + this.getMonthSalary();
+    }
+
+    private String toStringTitle() {
+        return Messages.DEVELOPER_TITLE.getValue() + this.getName();
     }
 
     public String toStringYears() {
-        return "Personal years: " + this.getYears();
+        return Messages.PERSONAL_YEARS.getValue() + this.getYears();
     }
 
     public void setBirthDate(Calendar birthDate) {
@@ -64,6 +77,10 @@ public class Person {
     }
 
     public short getMonthSalary() {
-        return monthSalary;
+        return this.monthSalary;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
