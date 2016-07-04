@@ -15,7 +15,8 @@ public enum Messages {
     YEARS_MINOR("\nThis is a minor Boy" ),
     YEARS_OLDER("\nthis man is retired"),
     YEARS_RETIREMENT("\nYears to Retirement: "),
-    SPACE_SEPARATOR("\\s");
+    SPACE_SEPARATOR("\\s"),
+    WAIT_THREAD_MILL("2000");
 
     private String messageValue;
     private String messageName;
