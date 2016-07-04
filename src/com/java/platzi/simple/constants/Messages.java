@@ -15,14 +15,17 @@ public enum Messages {
     PERSONAL_SALARY("\nMonthly salary: "),
     PERSONAL_YEARS("\nPersonal years: "),
     PERSONAL_STATURE("\nPersonal stature: "),
-    PERSONAL_STATURE_FIX("\", exactly: \""),
+    PERSONAL_STATURE_FIX(", exactly: "),
     YEARS_ADULT("\nYears to Be Adult: "),
     YEARS_MINOR("\nThis is a minor Boy"),
     YEARS_OLDER("\nthis man is retired"),
     YEARS_RETIREMENT("\nYears to Retirement: "),
     LINE_WRAP_DOCUMENT_SEGMENTS("\n#-----------------------------#\n"),
     SPACE_SEPARATOR("\\s"),
-    WAIT_THREAD_MILL("2000");
+    WAIT_THREAD_MILL("2000"),
+    EMPTY_STRING(""),
+    NEW_LINE("\n"),
+    DOCUMENT_EMPTY("There is nothing to read into Developers file.");
 
     private String messageValue;
     private String messageName;

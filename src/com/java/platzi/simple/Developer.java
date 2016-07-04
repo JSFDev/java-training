@@ -3,12 +3,16 @@ package com.java.platzi.simple;
 import com.java.platzi.simple.constants.Messages;
 import com.java.platzi.simple.constants.Skills;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Developer extends Person {
     private final String DOCUMENTS_ROUTE = "/home/fernando/htdocs/java-training/src/com/java/platzi/simple";
     private final String DOCUMENT_INFORMATION = "/documents/developersInformation.txt";
+    private final File DOCUMENT_FILE = new File(DOCUMENTS_ROUTE + DOCUMENT_INFORMATION);
     final byte ADULT_YEARS = 18;
     final byte RETIREMENT_YEARS = 65;
 
@@ -58,7 +62,7 @@ public class Developer extends Person {
     protected String toStringFinancialData() {
         String message = super.toStringFinancialData();
 
-        message += this.getYearsToBeAdult() != -1 ? Messages.YEARS_MINOR.getValue() : "";
+        message += this.getYearsToBeAdult() != -1 ? Messages.YEARS_MINOR.getValue() : Messages.EMPTY_STRING.getValue();
         message += Messages.YEARS_RETIREMENT.getValue();
         message += this.getYearsToRetirement() != -1 ? this.getYearsToRetirement() + Messages.YEARS.getValue() : Messages.YEARS_OLDER.getValue();
         return message;
@@ -74,15 +78,27 @@ public class Developer extends Person {
 
     public void printInformationInDocument() {
         try {
-            FileWriter document = new FileWriter(DOCUMENTS_ROUTE + DOCUMENT_INFORMATION);
+            FileWriter document = new FileWriter(DOCUMENT_FILE);
             document.write(this.getPersonalData());
             document.close();
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (Exception err) {
+            System.out.println(err.getMessage());
         }
     }
 
     public String readInformationFromDocument() {
-        return "reading front file.";
+        String message = "";
+        try {
+            String newLine;
+            BufferedReader document = new BufferedReader(new FileReader(DOCUMENT_FILE));
+            while ((newLine = document.readLine()) != null) {
+                message += newLine + Messages.NEW_LINE.getValue();
+            }
+            document.close();
+        } catch (Exception err) {
+            System.out.println(err.getMessage());
+        }
+
+        return !message.trim().equals(Messages.EMPTY_STRING.getValue()) ? message : Messages.DOCUMENT_EMPTY.getValue();
     }
 }
