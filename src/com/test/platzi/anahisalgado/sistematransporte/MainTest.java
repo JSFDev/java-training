@@ -4,7 +4,7 @@ import com.java.platzi.anahisalgado.asociatividad.DocumentoAsociatividad;
 import com.java.platzi.anahisalgado.conductor.Taxista;
 import com.java.platzi.anahisalgado.vehiculo.Taxi;
 
-public class Test {
+public class MainTest {
 
     public static void main(String[] args) {
         Taxi ti = new Taxi("AAA123", "fadf", "i7");
