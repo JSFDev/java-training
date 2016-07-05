@@ -25,6 +25,8 @@ public enum Messages {
     WAIT_THREAD_MILL("2000"),
     EMPTY_STRING(""),
     NEW_LINE("\n"),
+    CONN_OPENED("\nConnection successful...."),
+    CONN_CLOSED("\nClosed connection....."),
     DOCUMENT_EMPTY("There is nothing to read into Developers file.");
 
     private String messageValue;
