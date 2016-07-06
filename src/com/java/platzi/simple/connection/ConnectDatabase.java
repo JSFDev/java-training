@@ -1,7 +1,7 @@
 package com.java.platzi.simple.connection;
 
-import com.java.platzi.simple.Message;
 import com.java.platzi.simple.constants.ConnectionEnum;
+import com.java.platzi.simple.constants.DatabaseEnum;
 import com.java.platzi.simple.constants.Messages;
 
 import java.sql.Connection;
@@ -9,21 +9,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectDatabase {
-    private String urlDriverConnection;
+    private ConnectionEnum driverConnection;
+    private DatabaseEnum dbConnection;
     public static Connection connection = null;
 
-    public ConnectDatabase(String urlConnection, String database) {
-        this.setUrlDriverConnection(urlConnection, database);
+    public ConnectDatabase(ConnectionEnum driverConnection, DatabaseEnum dbConnection) {
+        this.driverConnection = driverConnection;
+        this.dbConnection = dbConnection;
     }
 
-    public static String getMysqlUrlConnection() {
-        return ConnectionEnum.MYSQL_DRIVER.getValue() +
-                ConnectionEnum.LOCALHOST.getValue() +
-                ConnectionEnum.MYSQL_PORT.getValue();
-    }
-
-    public void setUrlDriverConnection(String urlConnection, String database) {
-        this.urlDriverConnection = urlConnection + database;
+    private String getUrlConnection() {
+        return driverConnection.getProtocol() + dbConnection.getHost() + dbConnection.getPort() + dbConnection.getDatabase();
     }
 
     public static Connection getConnection() {
@@ -40,11 +36,11 @@ public class ConnectDatabase {
         return isValid;
     }
 
-    public void connectDatabase(String driverPackage, String user, String pass) {
+    public void connectDatabase(String user, String pass) {
         try {
             if (!this.isConnectionOpened()) {
-                Class.forName(driverPackage);
-                ConnectDatabase.connection = DriverManager.getConnection(this.getUrlDriverConnection(), user, pass);
+                Class.forName(driverConnection.getDriver());
+                ConnectDatabase.connection = DriverManager.getConnection(this.getUrlConnection(), user, pass);
                 this.printConnectionStatus(true);
             }
         } catch (SQLException sqlErr) {
@@ -68,9 +64,5 @@ public class ConnectDatabase {
     private void printConnectionStatus(boolean isOpened) {
         Messages message = isOpened ? Messages.CONN_OPENED : Messages.CONN_CLOSED;
         System.out.println(message.getValue());
-    }
-
-    public String getUrlDriverConnection() {
-        return urlDriverConnection;
     }
 }
