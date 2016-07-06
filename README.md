@@ -10,3 +10,5 @@ export JAVA_HOME=$JAVA_8
 export PATH="$PATH:$JAVA_HOME/bin"
 # $source /etc/environment
 ```
+
+- Run class Tests: **src.com.test**

@@ -2,29 +2,28 @@ package com.java.platzi.simple;
 
 import com.java.platzi.simple.connection.ConnectDatabase;
 import com.java.platzi.simple.constants.ConnectionEnum;
+import com.java.platzi.simple.constants.DatabaseEnum;
 
 public class SqlUser {
-    private ConnectDatabase mysqlDb;
+    private ConnectDatabase mysql;
     private String user;
     private String pass;
-    private String db;
 
-    public SqlUser(String user1, String pass, String db) {
+    public SqlUser(DatabaseEnum database, String user1, String pass) {
         this.user = user1;
         this.pass = pass;
-        this.db = db;
-        mysqlDb = new ConnectDatabase(ConnectDatabase.getMysqlUrlConnection(), db);
+        mysql = new ConnectDatabase(ConnectionEnum.MYSQL_DRIVER, database);
     }
 
-    public void connectMysqlDatabase () {
-        mysqlDb.connectDatabase(ConnectionEnum.MYSQL_DRIVER_PACKAGE.getValue(), this.user, this.pass);
+    public void connectMysqlDatabase() {
+        mysql.connectDatabase(this.user, this.pass);
     }
 
-    public void closeMysqlDatabase () {
-        mysqlDb.closeDatabase();
+    public void closeMysqlDatabase() {
+        mysql.closeDatabase();
     }
 
     public void insertUser(String name, String surname, String email, String pass, String bornDate) {
-        // todo: this.mysqlDb.getConnection();
+        this.mysql.getConnection();
     }
 }
