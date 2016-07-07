@@ -48,26 +48,31 @@ public class SqlUser {
     }
 
     private int getUserId(Statement statement, UserPojo user) throws SQLException {
-        String sqlGetIdFormat = "SELECT id FROM `users` WHERE name = '%s' AND email = '%s'";
+        String sqlGetIdFormat = "SELECT id FROM `users` WHERE name = '%s' AND email = '%s' limit 1";
         String query = String.format(sqlGetIdFormat,
                 crud.getParsedVarchar(user.getName()),
                 crud.getParsedVarchar(user.getEmail()));
         ResultSet resultSet = statement.executeQuery(query);
         ArrayList<Integer> userIdList = new ArrayList<>();
 
-        while(resultSet.next()){
+        while (resultSet.next()) {
             userIdList.add(resultSet.getInt("id"));
         }
 
-        if (userIdList.size() != 1){
-            throw new SQLException("there is no relational integrity of users with this name: " + user.getName());
+        if (userIdList.size() != 1) {
+            throw new SQLException("Error relational integrity from.\n" + query);
         }
 
         return userIdList.get(0);
     }
 
-    private void deleteUserById(Statement statement, int id) {
-        System.out.println(id);
+    private void deleteUserById(Statement statement, int id) throws SQLException {
+        String sqlDeleteFormat = "DELETE FROM `users` WHERE id = %d limit 1";
+        String query = String.format(sqlDeleteFormat, id);
+
+        if (statement.executeUpdate(query) == 0) {
+            throw new SQLException("Could not remove User from id column: " + id);
+        }
     }
 
     public void insertUser(UserPojo newUser) {
