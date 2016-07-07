@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class DeveloperTest implements Runnable {
-    private static final String THREAD_NAME = "Thread-developer";
-    private static final Thread thread = new Thread(new DeveloperTest(), THREAD_NAME);
+    private static final Thread thread = new Thread(new DeveloperTest(), "Thread-developer");
 
     @Override
     public void run() {

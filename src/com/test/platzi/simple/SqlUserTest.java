@@ -1,12 +1,15 @@
 package com.test.platzi.simple;
 
 import com.java.platzi.simple.SqlUser;
+import com.java.platzi.simple.UserPojo;
 import com.java.platzi.simple.constants.DatabaseEnum;
 
 public class SqlUserTest implements Runnable {
-    private static final String THREAD_NAME = "Thread-sqluser";
-    private static final Thread thread = new Thread(new SqlUserTest(), THREAD_NAME);
-    private static SqlUser rootTheypollLocal = new SqlUser(DatabaseEnum.THEYPOLL_LOCAL, "root", "mysql4316");
+    private static Thread thread = new Thread(new SqlUserTest(), "Thread-mysqluser");
+    private static final DatabaseEnum db = DatabaseEnum.THEYPOLL_LOCAL;
+    private static final String user = System.getenv("ROOT_USER_MYSQL");
+    private static final String pass = System.getenv("ROOT_PASS_MYSQL");
+    private static SqlUser rootTheypollLocal = new SqlUser(db, user, pass);
 
     @Override
     public void run() {
@@ -20,8 +23,9 @@ public class SqlUserTest implements Runnable {
     }
 
     private static void shouldInsertRandomUser() {
+        UserPojo pepe = new UserPojo("Pepe", "Lopera", "pepe@gmail", "tururu", 0, 1, "1972-12-15");
         rootTheypollLocal.connectMysqlDatabase();
-        rootTheypollLocal.insertUser("", "", "", "", "");
+        rootTheypollLocal.insertUser(pepe);
         rootTheypollLocal.closeMysqlDatabase();
     }
 
