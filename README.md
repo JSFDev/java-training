@@ -8,6 +8,8 @@
 JAVA_8=/usr/jdk/jdk1.8.0_91
 export JAVA_HOME=$JAVA_8
 export PATH="$PATH:$JAVA_HOME/bin"
+export ROOT_USER_MYSQL=***
+export ROOT_PASS_MYSQL=*****
 # $source /etc/environment
 ```
 
