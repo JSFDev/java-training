@@ -47,7 +47,7 @@ public class SqlUser {
         }
     }
 
-    private int getUserId(Statement statement, UserPojo user) throws SQLException {
+    private int getUserById(Statement statement, UserPojo user) throws SQLException {
         String sqlGetIdFormat = "SELECT id FROM `users` WHERE name = '%s' AND email = '%s' limit 1";
         String query = String.format(sqlGetIdFormat,
                 crud.getParsedVarchar(user.getName()),
@@ -98,9 +98,8 @@ public class SqlUser {
         Statement statement = null;
         try {
             statement = ConnectDatabase.getConnection().createStatement();
-            int id = this.getUserId(statement, user);
+            int id = this.getUserById(statement, user);
             this.deleteUserById(statement, id);
-
 
         } catch (SQLException e) {
             e.printStackTrace();
