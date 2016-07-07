@@ -14,7 +14,7 @@ public class SqlUserTest implements Runnable {
     @Override
     public void run() {
         SqlUserTest.shouldConnectDatabase();
-        SqlUserTest.shouldInsertRandomUser();
+        SqlUserTest.shouldCheckPersistanceUser();
     }
 
     private static void shouldConnectDatabase() {
@@ -22,10 +22,11 @@ public class SqlUserTest implements Runnable {
         rootTheypollLocal.closeMysqlDatabase();
     }
 
-    private static void shouldInsertRandomUser() {
+    private static void shouldCheckPersistanceUser() {
         UserPojo pepe = new UserPojo("Pepe", "Lopera", "pepe@gmail", "tururu", 0, 1, "1972-12-15");
         rootTheypollLocal.connectMysqlDatabase();
         rootTheypollLocal.insertUser(pepe);
+        rootTheypollLocal.deleteUser(pepe);
         rootTheypollLocal.closeMysqlDatabase();
     }
 
