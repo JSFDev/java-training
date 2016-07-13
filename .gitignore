@@ -3,3 +3,5 @@
 *.class
 out
 libs
+NOTES.md
+target
