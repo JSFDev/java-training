@@ -16,16 +16,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @WebServlet(
-        urlPatterns = {"/greeting"},
+        urlPatterns = {"/user"},
         initParams = {
-                @WebInitParam(name = "user", value = "default-user"),
-                @WebInitParam(name = "age", value = "default-age"),
+                @WebInitParam(name = "name", value = "default-userName"),
+                @WebInitParam(name = "age", value = "default-userAge"),
         })
-public class Greeting extends HttpServlet {
+public class UserDataServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
-        ArrayList<String> parameters = new ArrayList<>(Arrays.asList("message", "age"));
+        ArrayList<String> parameters = new ArrayList<>(Arrays.asList("name", "age"));
         PrintWriter respWriter = resp.getWriter();
         respWriter.print(JsonParse.getJsonParametersByRequest(req, parameters));
         respWriter.close();
