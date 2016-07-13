@@ -1,5 +1,7 @@
 package com.java.platzi.simple;
 
+import com.java.platzi.simple.constants.Messages;
+
 public class UserPojo {
     private int country;
     private int city;
@@ -45,5 +47,12 @@ public class UserPojo {
 
     public int getCountry() {
         return country;
+    }
+
+    @Override
+    public String toString() {
+        String nextData = Messages.NEW_LINE.getValue();
+
+        return super.toString() + nextData + this.name + nextData + this.surname + nextData + this.email + nextData + this.borndate;
     }
 }

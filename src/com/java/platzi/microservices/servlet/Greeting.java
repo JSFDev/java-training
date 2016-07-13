@@ -1,6 +1,7 @@
 package com.java.platzi.microservices.servlet;
 
 import com.java.platzi.microservices.servlet.utils.JsonParse;
+import com.java.platzi.simple.UserPojo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -25,11 +27,17 @@ public class Greeting extends HttpServlet {
         resp.setContentType("application/json");
         ArrayList<String> parameters = new ArrayList<>(Arrays.asList("message", "age"));
         PrintWriter respWriter = resp.getWriter();
-        respWriter.print(JsonParse.getJsonStringByRequest(req, parameters));
-        respWriter.flush();
+        respWriter.print(JsonParse.getJsonParametersByRequest(req, parameters));
+        respWriter.close();
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json");
+        PrintWriter respWriter = resp.getWriter();
+        BufferedReader reqPost = req.getReader();
+        respWriter.print(JsonParse.getJsonMapperObjectByStream(reqPost, UserPojo.class));
+        respWriter.close();
+        reqPost.close();
     }
 }
