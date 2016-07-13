@@ -24,7 +24,10 @@ $mvn clean install
 ```
 - execute web archive from tomcat embebd plugin
 ```bash
-mvn tomcat7:run
+mvnDebug tomcat7:run
 ```
-- Run web examples: **http://localhost:9191/servlet-platzi/**
-- Run class Tests: **src.com.test**
+- Open Remote debug code into port: 8000
+- Run web examples: **http://localhost:9191/java-training/**
+- Routes to servlets:
+  - /user?name&surname&email&borndate
+- Run class Tests: **src.test**
