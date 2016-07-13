@@ -1,6 +1,6 @@
 package main.com.platzi.microservices.servlet;
 
-import main.com.platzi.microservices.servlet.utils.JsonParse;
+import main.com.platzi.microservices.utils.JsonParse;
 import main.com.platzi.simple.UserPojo;
 
 import javax.servlet.ServletException;
@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
