@@ -10,9 +10,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Developer extends Person {
-    private final String DOCUMENTS_ROUTE = "/home/fernando/htdocs/java-training/src/com/java/platzi/simple";
-    private final String DOCUMENT_INFORMATION = "/documents/developersInformation.txt";
-    private final File DOCUMENT_FILE = new File(DOCUMENTS_ROUTE + DOCUMENT_INFORMATION);
     final byte ADULT_YEARS = 18;
     final byte RETIREMENT_YEARS = 65;
 
@@ -21,6 +18,13 @@ public class Developer extends Person {
     public Developer(String name, float height, short monthSalary, ArrayList<Skills> skills) {
         super(name, height, monthSalary);
         this.setTechnicalSkillList(skills);
+    }
+
+    private File getDocumentPath() {
+        String fileSource = "/src/main/com/platzi/simple/documents/developersInformation.txt";
+        String projectPath = System.getProperty("user.dir");
+
+        return new File(projectPath + fileSource).getAbsoluteFile();
     }
 
     public static ArrayList<Skills> getDefaultSkillList() {
@@ -78,7 +82,7 @@ public class Developer extends Person {
 
     public void printInformationInDocument() {
         try {
-            FileWriter document = new FileWriter(DOCUMENT_FILE);
+            FileWriter document = new FileWriter(this.getDocumentPath());
             document.write(this.getPersonalData());
             document.close();
         } catch (Exception err) {
@@ -90,7 +94,7 @@ public class Developer extends Person {
         String message = "";
         try {
             String newLine;
-            BufferedReader document = new BufferedReader(new FileReader(DOCUMENT_FILE));
+            BufferedReader document = new BufferedReader(new FileReader(this.getDocumentPath()));
             while ((newLine = document.readLine()) != null) {
                 message += newLine + Messages.NEW_LINE.getValue();
             }
