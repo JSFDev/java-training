@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
 
 @WebFilter(
-        urlPatterns = "/*",
+        urlPatterns = {"/*"},
         initParams = {
                 @WebInitParam(name = "state-root-webfilter", value = "filtered")
         }

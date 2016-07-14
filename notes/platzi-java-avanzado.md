@@ -147,7 +147,8 @@ los filtros son el preprocesamiento de las peticiones.
 Son la analogia a los middlewares en NodeJs.
 Al igula que cualquier Filtro de http, implementan el patron **Command Chain**, lo que permite encadenar filtros consecuentes (lo mismo que el callback de promises en los middlewares de Node).
 Manipulan la peticion antes de llegar a los Servlets que routean la peticion del cliente.
-
+Se utilizan para unificar condiciones a setear para configuracion de servlets
+**un filtro > multiples servlets**
 
 CODING
 - diferencias entre try(resource) y try {} catch() {}
@@ -159,3 +160,56 @@ GET: se recuperan parametros de la url, y se construye la respuesta para devolve
 POST: se envia informacion en la cabecera HTTP (en formato json, en el http body) y se utiliza para crear nuevas instancias en el sistema
 PATCH: a diferencia que POST en el que recuperas todo en el resoursO, en el body del http, con este estado http te centras en segmentos especificos del recurso, al igual que POST se utiliza para crear nuevas instancias.
 PUT: mismo que POST pero para manipular datos de una instancia.
+
+
+Tomcat, Jety, Jboss, Glasfish
+**sistemas de seguridad de un web service o un Rest service**
+- si estas accediendo a datos sensibles del usuario, que el manipula durante su session y persiste en el sistema: **implementar servicio Oauth2**, creas un token de iodentificacion del usuario que se verifica en un servidor externo.
+- Si accede a datos publicos del sistema: **API keys** (identificador del usuario para la api), **Throttling** es un limitador de conexiones o peticiones a la Api.
+
+Hibernate: Orm mas popular de conexion a BBDD
+Spring framework + Spring MVC.
+
+ventajas de SOAP: auditorias de seguridad, definicion de servicio
+ventajas de REST: flexibilidad, escalable y autodocumentado.
+
+CDI= Context Dependency Injection.
+
+RESTFULL API
+- teoria de servicio: manejar servicios en una arquitecture cliente-servidor, consumo de datos.
+- condiciones, reglas en un servicio REST:
+  - **recursos identificados por una URI**: en el caso proveer un servicio web, el identificador de recurso es una URL.
+  - **Manipulacion de recursos a traves de representaciones**: un servicio REST perite escojer diferentes representaciones de un mismo recurso (lo podemos devolver en XML, JSON...).
+  - **Servicio Autodescriptivo**: Al basarse en un protocolo HTTP, se utilizan los metadatos de la peticion, para definir el estado de del servicio. Son el header y el body de la response y request (metadatos) quienes describen y configuran el servicio.
+  - **HATEOAS - Hipermedia As The Engine Of Application State**: los datosq  que maneja a la peticion en el servicio del  recurso (request, response) son los que documentan el servicio.
+
+DETRACCION DE RESTFULL
+Hacer una peticion a un recurso que devuelve un conjunto de datos en un formato JSON o XML. NO es un servicio REST hasta que cumpla con las premisas anteriores:
+- Identificacion por una URI
+- Metadatos de definicion
+- Representacion de Objetos
+- HATEOAS
+
+ACLARACIONES DE UN SERVICIO REST
+- REST sirve recursos, en formato de consumo de datos: xml, json.
+- **La URI debe indicar el recurso del servicio**, NO como se accede al recurso.
+- No se deberia usar verbos en la URI
+- Mal ejemplos
+  - /adduser
+  - /delete/user
+  - /user/delete/morgan
+- Buenos ejemplos
+  - /user/morgan -GET -DELETE (el estado del request, verbos http, nos describen la accion del servicio REST)
+  - /user -POST (create new user by data from request body)
+  - /user -PUT (update user with data from request body)
+  - /user/morgan/courses -GET (obtain especific resource)
+  - /user/morgan/courses/java -GET
+  - - /user/morgan/courses/java?skill=backend -GET
+- **Codigos http**: sirven como descripcion del servicio en la response.
+  - 2xx: success
+  - 3xx: redireccion
+  - 4xx: error del cliente. Por no existir la uri del resurso solicitada, o no son correctos los parametros o el formato de la peticion.
+  - 5xx: Error del servidor. El servicio esta mal contruido. Error garrafal.
+- Buen ejemplo de servicio REST: [Github public REST Api](https://developer.github.com/v3/)
+- Es correcto utilizar parametros en la peticion para especiicar el recurso, por sulogica o como filtro.
+
