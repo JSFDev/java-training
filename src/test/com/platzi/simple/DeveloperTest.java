@@ -11,6 +11,7 @@ public class DeveloperTest implements Runnable {
 
     @Override
     public void run() {
+        System.out.println(MessageTest.getThread().getName());
         DeveloperTest.shouldInitializeProperties();
     }
 

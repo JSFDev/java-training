@@ -13,6 +13,7 @@ public class SqlUserTest implements Runnable {
 
     @Override
     public void run() {
+        System.out.println(MessageTest.getThread().getName());
         SqlUserTest.shouldConnectDatabase();
         SqlUserTest.shouldCheckPersistanceUser();
     }

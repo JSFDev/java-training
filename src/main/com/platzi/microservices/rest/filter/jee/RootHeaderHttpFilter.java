@@ -1,4 +1,4 @@
-package main.com.platzi.microservices.filter;
+package main.com.platzi.microservices.rest.filter.jee;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
 
 @WebFilter(
-        urlPatterns = "/*",
+        urlPatterns = {"/*"},
         initParams = {
                 @WebInitParam(name = "state-root-webfilter", value = "filtered")
         }

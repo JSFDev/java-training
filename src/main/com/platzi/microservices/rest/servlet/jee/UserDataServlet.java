@@ -1,4 +1,4 @@
-package main.com.platzi.microservices.servlet;
+package main.com.platzi.microservices.rest.servlet.jee;
 
 import main.com.platzi.microservices.utils.JsonParse;
 import main.com.platzi.simple.UserPojo;
