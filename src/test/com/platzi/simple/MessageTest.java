@@ -6,7 +6,7 @@ import main.com.platzi.simple.constants.Messages;
 import java.util.Scanner;
 
 public class MessageTest implements Runnable {
-    private static final Thread thread = new Thread(new MessageTest(), "Thread-message");
+    private static final Thread thread = new Thread(new MessageTest(), "Thread-simple-message");
     private static final String[] LIST_NO_ARGS = new String[0];
     private static final String[] LIST_MULTIPLE_ARGS = {"one", "two", "three"};
     private static long sleepThread = Integer.parseInt(Messages.WAIT_THREAD_MILL.getValue());

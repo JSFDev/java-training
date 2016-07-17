@@ -213,3 +213,33 @@ ACLARACIONES DE UN SERVICIO REST
 - Buen ejemplo de servicio REST: [Github public REST Api](https://developer.github.com/v3/)
 - Es correcto utilizar parametros en la peticion para especiicar el recurso, por sulogica o como filtro.
 
+
+DESIGN PATTERN : DEPENDENCY INJECTION
+Tambien llamado **inversion de control**
+Se basa en como se manejen las dependencias dentro de una clase.
+NVN es el encargado de injecar las dependencias en el WAR.
+Nos permite ser agnosticos, junto a los Wizards del IDE.
+
+Ejemplo dInjeccion Legacy o Vanilla:
+Se trata de tener un componente (instancia o dependencia, como propiedad de clase o instancia), que se pueda setear a traves de un metodo publico.
+De manera que desde fuera de la clase, a traves de la instancia, se pueda cambiar el comportamiento de esta dependencia.
+Al ser esta dependencia mutable, suele ser de tipo de la interfaz que heredan la clases que otorgan su comportamiento (es decir las que se setean):
+```java
+class HappyMessage implements Message {}
+class SadMessage implements Message {}
+class Status {
+  private Message message = new HappyMessage();
+  public setMessage(Message message) {
+    this.message = message;
+  }
+}
+
+public static void main(String[] args){
+  Status myStaus = new Status();
+  myStatus.setMessage(new SadMessage());
+}
+```
+
+DESIGN PATTER: FACTORY
+Se crea una clase que implementa factorias, estas factorias se encargan de manipular el comportamiento de  la dependencia (configuracion de objetos determinada).
+Era complicada porque se creaba un singleton encargado de mutar la dependencia a traves de la implementacion de las diferentes interfaces.

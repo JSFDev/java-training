@@ -30,4 +30,4 @@ mvnDebug tomcat7:run
 - Run web examples: **http://localhost:9191/java-training/**
 - Routes to servlets:
   - /user?name&surname&email&borndate
-- Run class Tests: **src.test**
+- Run class Tests: **src.test.com.**.MainTest**

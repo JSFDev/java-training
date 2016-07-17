@@ -1,6 +1,8 @@
 package main.com.platzi.simple.constants;
 
 public enum Messages {
+    HAPPY_SERVICE_MESSAGE("I´m so glad to be here."),
+    SAD_SERVICE_MESSAGE("I´m angry, get away from here."),
     NOARGSERROR("There is no console arguments."),
     TITLENUMARGS("The Number of input arguments: "),
     ARGS(" argument: "),
