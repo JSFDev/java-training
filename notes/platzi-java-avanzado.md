@@ -243,3 +243,9 @@ public static void main(String[] args){
 DESIGN PATTER: FACTORY
 Se crea una clase que implementa factorias, estas factorias se encargan de manipular el comportamiento de  la dependencia (configuracion de objetos determinada).
 Era complicada porque se creaba un singleton encargado de mutar la dependencia a traves de la implementacion de las diferentes interfaces.
+
+SPRINTG CONTEXT
+se trata de layer de mas bajo nivel de Spring, incluje el Context, Core, Beans
+El @Context es un modulo basico en Spring que se encarga de la injeccion de dependencias, los @Bean representan instancias a modo de singletons que exponen metodos esepecificos dentro de la clase contexto.
+Estos metodos lo que hacen por detras en manejar un singleton de esa dependencia, de modo que dependiendo del bean que le indiquemos nos dan un comportamiento de esta dependencia (una instancia diferente), por lo tanto se apica un patron Factory.
+

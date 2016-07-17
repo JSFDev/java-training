@@ -13,6 +13,7 @@ public class MessageTest implements Runnable {
 
     @Override
     public void run() {
+        System.out.println(MessageTest.getThread().getName());
         MessageTest.shouldPrintGreetingMessage(LIST_NO_ARGS);
         MessageTest.shouldPrintMessageByProgramArguments(LIST_MULTIPLE_ARGS);
         MessageTest.shouldPrintMessageByConsoleArguments();
