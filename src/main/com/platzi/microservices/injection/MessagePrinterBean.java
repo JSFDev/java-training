@@ -26,6 +26,11 @@ public class MessagePrinterBean {
         };
     }
 
+    @Bean(name = "mockMessageServiceLambda")
+    MessageService mockMessageServiceLambda() {
+        return Messages.UNKNOWN_SERVICE_MESSAGE::getValue;
+    }
+
     @Bean(name = "happyMessageService")
     @Primary
     MessageService happyMessageService() {
