@@ -7,6 +7,7 @@ import main.com.platzi.simple.constants.Messages;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * Interfaz de configurecion de dependencias (MessageServices) -> Factoria
@@ -15,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 public class MessagePrinterBean {
 
-    @Bean
+    @Bean(name = "mockMessageService")
     MessageService mockMessageService() {
         return new MessageService() {
             @Override
@@ -25,12 +26,13 @@ public class MessagePrinterBean {
         };
     }
 
-    @Bean
+    @Bean(name = "happyMessageService")
+    @Primary
     MessageService happyMessageService() {
         return new HappyMessageService();
     }
 
-    @Bean
+    @Bean(name = "sadMessageService")
     MessageService sadMessageService() {
         return new SadMessageService();
     }
