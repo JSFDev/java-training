@@ -32,6 +32,7 @@ public class JsonParse {
      * @param objectType class type to map by data buffered reader.
      * @return String json mapped from object deserialize.
      */
+    @SuppressWarnings("unchecked")
     public static String getJsonMapperObjectByStream(BufferedReader reader, Class objectType) {
         Object objectMapper = null;
 

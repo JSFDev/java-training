@@ -1,4 +1,4 @@
-package main.com.platzi.microservices.filter;
+package main.com.platzi.microservices.rest.filter.jee;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

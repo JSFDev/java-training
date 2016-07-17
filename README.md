@@ -22,12 +22,18 @@ export ROOT_PASS_MYSQL=*****
 ```bash
 $mvn clean install
 ```
-- execute web archive from tomcat embebd plugin
+- execute web archive from **tomcat embebd plugin**
 ```bash
-mvnDebug tomcat7:run
+$mvn[Debug] tomcat7:run
 ```
+- execute web archive from **spring boot tomcat module**
+```bash
+$java -jar ./target/java-training.war
+```
+
 - Open Remote debug code into port: 8000
-- Run web examples: **http://localhost:9191/java-training/**
-- Routes to servlets:
-  - /user?name&surname&email&borndate
-- Run class Tests: **src.test.com.**.MainTest**
+- Run Tomcat: **http://localhost:9191[/java-training]**
+- Routes to services:
+  - /java-training/user?name&surname&email&borndate -GET
+  - /user -GET -POST
+- Run standalone Tests: **src.test.com.**.MainTest**
