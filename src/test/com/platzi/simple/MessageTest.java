@@ -2,6 +2,7 @@ package test.com.platzi.simple;
 
 import main.com.platzi.simple.Message;
 import main.com.platzi.simple.constants.Messages;
+import test.com.Test;
 
 import java.util.Scanner;
 
@@ -11,19 +12,20 @@ public class MessageTest implements Runnable {
     private static final String[] LIST_MULTIPLE_ARGS = {"one", "two", "three"};
     private static long sleepThread = Integer.parseInt(Messages.WAIT_THREAD_MILL.getValue());
 
-    @Override
-    public void run() {
-        System.out.println(MessageTest.getThread().getName());
-        MessageTest.shouldPrintGreetingMessage(LIST_NO_ARGS);
-        MessageTest.shouldPrintMessageByProgramArguments(LIST_MULTIPLE_ARGS);
-        MessageTest.shouldPrintMessageByConsoleArguments();
-    }
-
     public static Thread getThread() {
         return MessageTest.thread;
     }
 
-    private static void shouldPrintMessageByConsoleArguments() {
+    @Override
+    public void run() {
+        System.out.println(MessageTest.getThread().getName());
+        this.shouldPrintGreetingMessage(LIST_NO_ARGS);
+        this.shouldPrintMessageByProgramArguments(LIST_MULTIPLE_ARGS);
+        this.shouldPrintMessageByConsoleArguments();
+    }
+
+    @Test
+    private void shouldPrintMessageByConsoleArguments() {
         try {
             Thread.sleep(sleepThread);
             System.out.println(Messages.PRINT_SCANNER.getValue());
@@ -38,7 +40,8 @@ public class MessageTest implements Runnable {
         }
     }
 
-    private static void shouldPrintMessageByProgramArguments(String[] args) {
+    @Test
+    private void shouldPrintMessageByProgramArguments(String[] args) {
         try {
             Message message = new Message(args);
             message.setMessageByArguments();
@@ -49,7 +52,8 @@ public class MessageTest implements Runnable {
         }
     }
 
-    private static void shouldPrintGreetingMessage(String[] args) {
+    @Test
+    private void shouldPrintGreetingMessage(String[] args) {
         Message message = new Message(args);
         message.setMessageByArguments();
         System.out.println(message.getOutput());

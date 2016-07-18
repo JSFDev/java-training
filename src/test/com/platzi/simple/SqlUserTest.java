@@ -3,6 +3,7 @@ package test.com.platzi.simple;
 import main.com.platzi.simple.SqlUser;
 import main.com.platzi.simple.UserPojo;
 import main.com.platzi.simple.constants.DatabaseEnum;
+import test.com.Test;
 
 public class SqlUserTest implements Runnable {
     private static Thread thread = new Thread(new SqlUserTest(), "Thread-mysqluser");
@@ -11,27 +12,29 @@ public class SqlUserTest implements Runnable {
     private static final String pass = System.getenv("ROOT_PASS_MYSQL");
     private static SqlUser rootTheypollLocal = new SqlUser(db, user, pass);
 
+    public static Thread getThread() {
+        return SqlUserTest.thread;
+    }
+
     @Override
     public void run() {
         System.out.println(MessageTest.getThread().getName());
-        SqlUserTest.shouldConnectDatabase();
-        SqlUserTest.shouldCheckPersistanceUser();
+        this.shouldConnectDatabase();
+        this.shouldCheckPersistanceUser();
     }
 
-    private static void shouldConnectDatabase() {
+    @Test
+    private void shouldConnectDatabase() {
         rootTheypollLocal.connectMysqlDatabase();
         rootTheypollLocal.closeMysqlDatabase();
     }
 
-    private static void shouldCheckPersistanceUser() {
+    @Test
+    private void shouldCheckPersistanceUser() {
         UserPojo pepe = new UserPojo("Pepe", "Lopera", "pepe@gmail", "tururu", 0, 1, "1972-12-15");
         rootTheypollLocal.connectMysqlDatabase();
         rootTheypollLocal.insertUser(pepe);
         rootTheypollLocal.deleteUser(pepe);
         rootTheypollLocal.closeMysqlDatabase();
-    }
-
-    public static Thread getThread() {
-        return SqlUserTest.thread;
     }
 }

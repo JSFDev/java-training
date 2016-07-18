@@ -8,6 +8,7 @@ import main.com.platzi.microservices.utils.HappyMessageService;
 import main.com.platzi.microservices.utils.SadMessageService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import test.com.Test;
 
 /**
  * this.printer, es una dependencia de esta clase CDITest, es un singleton,
@@ -19,22 +20,24 @@ public class CDITest implements Runnable {
     @Override
     public void run() {
         System.out.println(CDITest.getThread().getName());
-        CDITest.shouldSetMoodMessageByInstance();
-        CDITest.shouldSetMoodMessageByBean();
+        this.shouldSetMoodMessageByInstance();
+        this.shouldSetMoodMessageByBean();
     }
 
     public static Thread getThread() {
         return CDITest.thread;
     }
 
-    private static void shouldSetMoodMessageByInstance() {
+    @Test
+    private void shouldSetMoodMessageByInstance() {
         printer = new MessagePrinterInstance(new HappyMessageService());
         printer.printMessage();
         printer.setMessage(new SadMessageService());
         printer.printMessage();
     }
 
-    private static void shouldSetMoodMessageByBean() {
+    @Test
+    private void shouldSetMoodMessageByBean() {
         ApplicationContext printerContext = new AnnotationConfigApplicationContext(MessagePrinterBean.class);
         printer = printerContext.getBean(MessagePrinterComponent.class);
         printer.printMessage();
