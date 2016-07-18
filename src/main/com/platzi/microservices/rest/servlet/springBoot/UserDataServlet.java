@@ -10,6 +10,6 @@ public class UserDataServlet {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = "application/json")
     public UserPojo user() {
-        return new UserPojo("Pepe", "Lopera", "pepe@gmail", "taurus", 0, 1, "1972-12-15");
+        return new UserPojo(1, 0, "Pepe", "Lopera", "pepe@gmail", "taurus", "1972-12-15");
     }
 }

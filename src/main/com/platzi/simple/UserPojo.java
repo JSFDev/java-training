@@ -11,7 +11,7 @@ public class UserPojo {
     private String password;
     private String borndate;
 
-    public UserPojo(String name, String surname, String email, String password, int city, int country, String borndate) {
+    public UserPojo(int country, int city, String name, String surname, String email, String password, String borndate) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -19,6 +19,9 @@ public class UserPojo {
         this.borndate = borndate;
         this.city = city;
         this.country = country;
+    }
+
+    public UserPojo() {
     }
 
     public String getName() {
