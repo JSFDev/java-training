@@ -2,7 +2,7 @@ package test.com.platzi.simple;
 
 import main.com.platzi.simple.Message;
 import main.com.platzi.simple.constants.Messages;
-import test.com.Test;
+import org.junit.Test;
 
 import java.util.Scanner;
 

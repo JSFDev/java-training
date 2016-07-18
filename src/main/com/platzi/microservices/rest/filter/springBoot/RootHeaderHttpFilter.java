@@ -1,4 +1,6 @@
-package main.com.platzi.microservices.rest.filter.jee;
+package main.com.platzi.microservices.rest.filter.springBoot;
+
+import org.springframework.stereotype.Component;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -6,17 +8,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
 
-@WebFilter(
-        urlPatterns = {"/*"},
-        initParams = {
-                @WebInitParam(name = "state-root-webfilter", value = "filtered")
-        }
-)
+@Component
 public class RootHeaderHttpFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 

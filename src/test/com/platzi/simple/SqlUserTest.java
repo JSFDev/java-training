@@ -3,7 +3,7 @@ package test.com.platzi.simple;
 import main.com.platzi.simple.SqlUser;
 import main.com.platzi.simple.UserPojo;
 import main.com.platzi.simple.constants.DatabaseEnum;
-import test.com.Test;
+import org.junit.Test;
 
 public class SqlUserTest implements Runnable {
     private static Thread thread = new Thread(new SqlUserTest(), "Thread-mysqluser");
@@ -31,7 +31,7 @@ public class SqlUserTest implements Runnable {
 
     @Test
     private void shouldCheckPersistanceUser() {
-        UserPojo pepe = new UserPojo("Pepe", "Lopera", "pepe@gmail", "tururu", 0, 1, "1972-12-15");
+        UserPojo pepe = new UserPojo(1, 0, "Pepe", "Lopera", "pepe@gmail", "taurus", "1972-12-15");
         rootTheypollLocal.connectMysqlDatabase();
         rootTheypollLocal.insertUser(pepe);
         rootTheypollLocal.deleteUser(pepe);

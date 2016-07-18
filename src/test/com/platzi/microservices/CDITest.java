@@ -6,9 +6,9 @@ import main.com.platzi.microservices.injection.MessagePrinterComponent;
 import main.com.platzi.microservices.injection.MessagePrinterInstance;
 import main.com.platzi.microservices.utils.HappyMessageService;
 import main.com.platzi.microservices.utils.SadMessageService;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import test.com.Test;
 
 /**
  * this.printer, es una dependencia de esta clase CDITest, es un singleton,

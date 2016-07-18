@@ -2,7 +2,7 @@ package test.com.platzi.simple;
 
 import main.com.platzi.simple.Developer;
 import main.com.platzi.simple.constants.Skills;
-import test.com.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Calendar;
