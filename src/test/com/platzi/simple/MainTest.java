@@ -2,8 +2,8 @@ package test.com.platzi.simple;
 
 public class MainTest {
     public static void main(String[] args) {
-        DeveloperTest.getThread().start();
-        MessageTest.getThread().start();
-        SqlUserTest.getThread().start();
+        new DeveloperTest().runTask();
+        new MessageTest().runTask();
+        new SqlUserTest().runTask();
     }
 }

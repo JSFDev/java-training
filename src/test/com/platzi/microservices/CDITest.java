@@ -13,19 +13,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * this.printer, es una dependencia de esta clase CDITest, es un singleton,
  */
-public class CDITest implements Runnable {
-    private static final Thread thread = new Thread(new CDITest(), "Thread-microservice-cdi");
-    private static MessagePrinter printer = null;
-
-    @Override
-    public void run() {
-        System.out.println(CDITest.getThread().getName());
+public class CDITest {
+    private Thread thread = null;
+    private Runnable task = () -> {
+        System.out.println(this.thread.getName());
         this.shouldSetMoodMessageByInstance();
         this.shouldSetMoodMessageByBean();
-    }
+    };
+    private static MessagePrinter printer = null;
 
-    public static Thread getThread() {
-        return CDITest.thread;
+    public void runTask() {
+        thread = new Thread(this.task, "Thread-microservice-cdi");
+        thread.start();
     }
 
     @Test
@@ -38,8 +37,10 @@ public class CDITest implements Runnable {
 
     @Test
     private void shouldSetMoodMessageByBean() {
-        ApplicationContext printerContext = new AnnotationConfigApplicationContext(MessagePrinterBean.class);
-        printer = printerContext.getBean(MessagePrinterComponent.class);
+        // factoria de Beans, del Tipo de la dependencia a injectar: MessagePrinter printer
+        ApplicationContext printerFactory = new AnnotationConfigApplicationContext(MessagePrinterBean.class);
+        // Componente/controlador que injecta la dependencia dada por la factoria de Beans
+        printer = printerFactory.getBean(MessagePrinterComponent.class);
         printer.printMessage();
     }
 }

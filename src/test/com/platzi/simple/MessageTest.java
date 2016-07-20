@@ -6,22 +6,21 @@ import org.junit.Test;
 
 import java.util.Scanner;
 
-public class MessageTest implements Runnable {
-    private static final Thread thread = new Thread(new MessageTest(), "Thread-simple-message");
+public class MessageTest {
+    private Thread thread = null;
+    private Runnable task = () -> {
+        System.out.println(this.thread.getName());
+        this.shouldPrintGreetingMessage(LIST_NO_ARGS);
+        this.shouldPrintMessageByProgramArguments(LIST_MULTIPLE_ARGS);
+        this.shouldPrintMessageByConsoleArguments();
+    };
     private static final String[] LIST_NO_ARGS = new String[0];
     private static final String[] LIST_MULTIPLE_ARGS = {"one", "two", "three"};
     private static long sleepThread = Integer.parseInt(Messages.WAIT_THREAD_MILL.getValue());
 
-    public static Thread getThread() {
-        return MessageTest.thread;
-    }
-
-    @Override
-    public void run() {
-        System.out.println(MessageTest.getThread().getName());
-        this.shouldPrintGreetingMessage(LIST_NO_ARGS);
-        this.shouldPrintMessageByProgramArguments(LIST_MULTIPLE_ARGS);
-        this.shouldPrintMessageByConsoleArguments();
+    public void runTask() {
+        thread = new Thread(this.task, "Thread-simple-message");
+        thread.start();
     }
 
     @Test

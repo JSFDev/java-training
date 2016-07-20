@@ -246,6 +246,51 @@ Era complicada porque se creaba un singleton encargado de mutar la dependencia a
 
 SPRINTG CONTEXT
 se trata de layer de mas bajo nivel de Spring, incluje el Context, Core, Beans
-El @Context es un modulo basico en Spring que se encarga de la injeccion de dependencias, los @Bean representan instancias a modo de singletons que exponen metodos esepecificos dentro de la clase contexto.
+El @Component es un modulo basico en Spring que se encarga de la injeccion de dependencias, los @Bean representan instancias a modo de singletons que exponen metodos esepecificos dentro de la clase contexto.
 Estos metodos lo que hacen por detras en manejar un singleton de esa dependencia, de modo que dependiendo del bean que le indiquemos nos dan un comportamiento de esta dependencia (una instancia diferente), por lo tanto se apica un patron Factory.
 
+SPRING CORE
+Spring nacio como framework que solucionaba CDI (Component dependency injection, ahora en su version de @Component), y se especializo en la POA (programacion orientada a Aspectos).
+
+MODULOS DE SPRNING
+- CDI
+- POA
+- abstraccion de modulos de JEE: REST, MVC, Servlets, Filters
+- des/serializacion de Objetos en servicios RESTFULL
+
+PATRON DE DISEÑO FRONTCONTROLLER
+se trata de un modulo de Spring MVC, que hereda la funcionalidad del DispatcherServlet.
+El DispatcherServlet es un unico Servlet de aplicacion que se encarga de conectar el Front de la aplicacion.
+
+FrontController: Router que parsea la URL, filtra o preprocesa la URL.
+
+SPRNGBOOT
+Es una abstraccion de los modulos de Spring
+
+
+REPOSITORIO DE MAVEN
+se especifica con la variable de entorno M2_HOME"
+Es donde se alojan localmente las dependencias que consume MVN en cada aplicacion demtro del equipo donde se aloja la aplicacion.
+
+WIRING
+Es como es denomina al proceso de injeccion de dependencias.
+Una clase @Component es la que se encarga de instanciar la dependencia a traves de esta anotacion.
+la dependencia se injecta a traves de una clase @Configuration que declara una serie de factorias de esta dependencia (con diferente configuracion).
+
+La manera en la que un @Component injecta dependencias a traves de la factoria @Configuration, es a traves de @Autoweired.
+De esta manera buscara la factoria anotawda con @ComponentScan que exponga dependencias con la instancia que este buscando injectar.
+
+ANOTACIONES PARA CLASES DE CDI
+@Component: mas sencilla, objetos
+@Controller
+@Repository: objetos de persistencia
+@Service:
+@ClassPathBeenDefinitionScanner
+
+Definicion de @Ban
+En cualquier entorno un Bean es una instancia de un Objecto.
+en Spring, para el CDI, el componente encargado de injectar el Bean, sera el encargado de definir el tipo (dependiendo de la anotacion para CDI).
+un Pojo es un Bean con la configuracion de un Objeto simple.
+Un Entity es un Bean con la representacion de un objeto que persiste en BBDD (son los JPA de JEE).
+
+Los EJB (Enterprise java beans) se refiere a esto mismo, un Bean, un objeto, con una configuracion de propiedades especificas.
