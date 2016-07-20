@@ -11,8 +11,12 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RestTest implements Runnable {
-    private static final Thread thread = new Thread(new RestTest(), "Thread-microservice-rest");
+public class RestTest {
+    private Thread thread = null;
+    private Runnable task = () -> {
+        System.out.println(this.thread.getName());
+        this.shouldGetUserPojo();
+    };
     private RequestSpecification spec = this.initSpec();
     private UserPojo mockUser = new UserPojo(1, 0, "Pepe", "Lopera", "pepe@gmail", "taurus", "1972-12-15");
 
@@ -35,14 +39,9 @@ public class RestTest implements Runnable {
                 .build();
     }
 
-    @Override
-    public void run() {
-        System.out.println(RestTest.getThread().getName());
-        this.shouldGetUserPojo();
-    }
-
-    public static Thread getThread() {
-        return RestTest.thread;
+    public void runTask() {
+        thread = new Thread(this.task, "Thread-microservice-rest");
+        thread.start();
     }
 
     @Test

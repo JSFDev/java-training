@@ -7,17 +7,16 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class DeveloperTest implements Runnable {
-    private static final Thread thread = new Thread(new DeveloperTest(), "Thread-developer");
-
-    public static Thread getThread() {
-        return DeveloperTest.thread;
-    }
-
-    @Override
-    public void run() {
-        System.out.println(MessageTest.getThread().getName());
+public class DeveloperTest {
+    private Thread thread = null;
+    private Runnable task = () -> {
+        System.out.println(this.thread.getName());
         this.shouldInitializeProperties();
+    };
+
+    public void runTask() {
+        thread = new Thread(this.task, "Thread-developer");
+        thread.start();
     }
 
     @Test

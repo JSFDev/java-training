@@ -5,22 +5,21 @@ import main.com.platzi.simple.UserPojo;
 import main.com.platzi.simple.constants.DatabaseEnum;
 import org.junit.Test;
 
-public class SqlUserTest implements Runnable {
-    private static Thread thread = new Thread(new SqlUserTest(), "Thread-mysqluser");
+public class SqlUserTest {
+    private Thread thread = null;
+    private Runnable task = () -> {
+        System.out.println(this.thread.getName());
+        this.shouldConnectDatabase();
+        this.shouldCheckPersistanceUser();
+    };
     private static final DatabaseEnum db = DatabaseEnum.THEYPOLL_LOCAL;
     private static final String user = System.getenv("ROOT_USER_MYSQL");
     private static final String pass = System.getenv("ROOT_PASS_MYSQL");
     private static SqlUser rootTheypollLocal = new SqlUser(db, user, pass);
 
-    public static Thread getThread() {
-        return SqlUserTest.thread;
-    }
-
-    @Override
-    public void run() {
-        System.out.println(MessageTest.getThread().getName());
-        this.shouldConnectDatabase();
-        this.shouldCheckPersistanceUser();
+    public void runTask() {
+        thread = new Thread(this.task, "Thread-mysqluser");
+        thread.start();
     }
 
     @Test
