@@ -1,11 +1,11 @@
-package test.com.platzi.anahisalgado.sistematransporte;
+package test.com.platzi.simple;
 
 import main.com.platzi.anahisalgado.asociatividad.DocumentoAsociatividad;
 import main.com.platzi.anahisalgado.conductor.Taxista;
 import main.com.platzi.anahisalgado.vehiculo.Taxi;
 import org.junit.Test;
 
-public class MainTest {
+public class TaxistaTest {
     private Thread thread = null;
     private Runnable task = () -> {
         System.out.println(this.thread.getName());
@@ -26,9 +26,5 @@ public class MainTest {
         dA.mostrarDatosDocumento();
         DocumentoAsociatividad dA2 = new DocumentoAsociatividad(ti, tA2);
         dA2.mostrarDatosDocumento();
-    }
-
-    public static void main(String[] args) {
-        new MainTest().runTask();
     }
 }

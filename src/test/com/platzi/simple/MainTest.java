@@ -5,5 +5,7 @@ public class MainTest {
         new DeveloperTest().runTask();
         new MessageTest().runTask();
         new SqlUserTest().runTask();
+        new TaxistaTest().runTask();
+        new LambdaExpressionTest().runTask();
     }
 }
