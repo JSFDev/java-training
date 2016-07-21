@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Primary;
  * Interfaz de configurecion de dependencias (MessageServices) -> Factoria
  */
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = "main.com.platzi.microservices.injection")
 public class MessagePrinterBean {
 
     @Bean(name = "mockMessageService")

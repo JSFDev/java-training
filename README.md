@@ -36,4 +36,6 @@ $java -jar ./target/java-training.war
 - Routes to services:
   - /java-training/user?name&surname&email&borndate -GET
   - /user -GET -POST
+  - /instructors/test
+
 - Run standalone Tests: **src.test.com.**.MainTest**
