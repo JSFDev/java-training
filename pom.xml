@@ -40,7 +40,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.3.6.RELEASE</version>
                 <configuration>
-                    <mainClass>main.com.Application</mainClass>
+                    <!--<mainClass>main.com.platzi.microservices.Application</mainClass>-->
+                    <mainClass>main.com.platzi.appRestCoursesInstructors.Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>

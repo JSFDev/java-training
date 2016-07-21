@@ -294,3 +294,9 @@ un Pojo es un Bean con la configuracion de un Objeto simple.
 Un Entity es un Bean con la representacion de un objeto que persiste en BBDD (son los JPA de JEE).
 
 Los EJB (Enterprise java beans) se refiere a esto mismo, un Bean, un objeto, con una configuracion de propiedades especificas.
+
+JAVA8, nuevas interfaces y paradigmas.
+- Lambdas expresions: funcioners como argumentos, codigo como datos. Se utiliza para simplifoicar implementaciones de interfaces de un solo metodo abstracto
+- mejora de programacion funcional: paradigma diferenciado de la POO en la que las funciones son el principal protagoinista y actuan como datos,. Se anidan las funciones, devolver valores a traves de la llamada entre funciones.
+- Streams: Critica malas a java: es verboso (demasiado complejo para crear ciertos datos , por ejemplo un array), ahora se pueden encadenar streams de datos
+- Date Api.
