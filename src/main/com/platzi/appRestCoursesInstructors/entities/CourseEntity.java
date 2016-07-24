@@ -10,8 +10,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class CourseEntity {
 
-    @JsonIgnore
     @ManyToOne
+    @JsonIgnore
     private InstructorEntity instructor;
 
 

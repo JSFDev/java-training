@@ -1,7 +1,12 @@
 package main.com.platzi.appRestCoursesInstructors.services;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-@RestController
-public class ErrorService {
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ErrorService extends RuntimeException {
+
+    public ErrorService(String userId) {
+        super("Could not find user \"" + userId + "\".");
+    }
 }

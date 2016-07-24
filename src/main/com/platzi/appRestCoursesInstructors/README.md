@@ -1,11 +1,14 @@
+#### PATH RESOUCES
+**http://localhost:8080**
+
 #### URI RESOURCES
 **/test -GET** -String testRest: print message to test
 **/instructors -GET** -List&lt;Instructors&gt; getAllInstructors: get all instructor list
-**/instructors -POST** -void addInstructor: deserialize instructor by json post and create it.
-**/instructors/{idUser} -GET** -Instructor getInstructorById: get especific instructor by id
-**/instructors/{idUser}/courses -GET** -List&lt;Courses&gt; getAllCourses: get all coursees from instructor
-**/instructors/{idUser}/courses -POST** -void addCourse: deserialize course by json post and apply to instructor
-**/instructors/{idUser}/courses/{idCourse} -GET** -Course getCourseById: get especific course from instructor
+**/instructor -POST** -void addInstructor: deserialize instructor by json post and create it.
+**/instructor/{idUser} -GET** -Instructor getInstructorById: get especific instructor by id
+**/instructor/{idUser}/courses -GET** -List&lt;Courses&gt; getAllCourses: get all coursees from instructor
+**/instructor/{idUser}/courses -POST** -void addCourse: deserialize course by json post and apply to instructor
+**/instructor/{idUser}/course/{idCourse} -GET** -Course getCourseById: get especific course from instructor
 
 
 #### STATUS CLIENT
