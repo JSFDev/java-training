@@ -298,5 +298,18 @@ Los EJB (Enterprise java beans) se refiere a esto mismo, un Bean, un objeto, con
 JAVA8, nuevas interfaces y paradigmas.
 - Lambdas expresions: funcioners como argumentos, codigo como datos. Se utiliza para simplifoicar implementaciones de interfaces de un solo metodo abstracto
 - mejora de programacion funcional: paradigma diferenciado de la POO en la que las funciones son el principal protagoinista y actuan como datos,. Se anidan las funciones, devolver valores a traves de la llamada entre funciones.
-- Streams: Critica malas a java: es verboso (demasiado complejo para crear ciertos datos , por ejemplo un array), ahora se pueden encadenar streams de datos
+- Streams: Critica malas a java: es verboso (demasiado complejo para crear ciertos datos , por ejemplo un array), ahora se pueden encadenar streams de datos.
+Los Streams son una secuencia de operaciones de agregacion sobre una fuente.
+En los Streams una vez que los hemos usado como pipe, tenemos dos objetos de tipo Stream:
+Streams que nos devuelven objetos finales: cierran el stream: stream().collect([object catched]).
+Streams que nos devuelven objetos intermediarios: devuelve otro stream para anidar otro pipe: stream().filter([iterator or lambda]).
 - Date Api.
+- Optional: es un Tipo de Objeto que permite recumerar cualquier tipo de instancia y devolver null en caso de que no se pueda recuperar o crear. Es un wrap al tipico NullpointerException y se aplica en los objetos que devuelven algunas interfaces de la Api de SpringBoot. Se recupera el valor con .get().
+
+PREGUNTAS
+- JpaRepository de Spring es:
+
+- La anotación @GeneratedValue de JPA sirve para:
+
+
+- ¿Qué es el ResponseEntity de Spring MVC?
