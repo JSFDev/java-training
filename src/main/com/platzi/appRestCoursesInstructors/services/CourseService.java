@@ -2,7 +2,6 @@ package main.com.platzi.appRestCoursesInstructors.services;
 
 import main.com.platzi.appRestCoursesInstructors.entities.CourseEntity;
 import main.com.platzi.appRestCoursesInstructors.repositories.CourseRepository;
-import main.com.platzi.appRestCoursesInstructors.repositories.InstructorRepository;
 import main.com.platzi.appRestCoursesInstructors.repositories.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -19,38 +18,42 @@ import java.util.Collection;
 
 @RestController
 public class CourseService {
-    private CourseRepository courseRepository;
-    @Autowired
-    private InstructorRepository instructorRepository;
+    private static CourseRepository repository;
+
+    public static CourseRepository getCourseRepository() {
+        return CourseService.repository;
+    }
 
     @Autowired
-    public CourseService(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
+    public CourseService(CourseRepository repository) {
+        CourseService.repository = repository;
     }
 
     @RequestMapping(value = "/instructor/{userName}/courses", method = RequestMethod.GET)
     Collection<CourseEntity> getInstructorCourses(@PathVariable String userName) {
-        Validator.validateUser(instructorRepository, userName);
-        return courseRepository.findByInstructorUsername(userName);
+        Validator.validateUser(InstructorService.getRepository(), userName);
+        return repository.findByInstructorUsername(userName);
     }
 
     @RequestMapping(value = "/instructor/{userName}/course/{courseId}", method = RequestMethod.GET)
     CourseEntity getInstructorCourseById(@PathVariable String userName, @PathVariable Long courseId) {
-        Validator.validateUser(instructorRepository, userName);
-        return this.courseRepository.findOne(courseId);
+        Validator.validateUser(InstructorService.getRepository(), userName);
+        return CourseService.repository.findOne(courseId);
     }
 
     @RequestMapping(value = "/instructor/{userName}/course", method = RequestMethod.POST)
     ResponseEntity<?> createInstructorCourses(@PathVariable String userName, @RequestBody CourseEntity reqCourse) {
-        Validator.validateUser(instructorRepository, userName);
+        Validator.validateUser(InstructorService.getRepository(), userName);
 
-        return instructorRepository.findByUsername(userName)
+        return InstructorService.getRepository()
+                .findByUsername(userName)
                 .map(instructor -> {
                     CourseEntity course = new CourseEntity(instructor, reqCourse.getDescription());
+                    CourseService.repository.save(course);
                     HttpHeaders httpHeaders = new HttpHeaders();
 
                     httpHeaders.setLocation(ServletUriComponentsBuilder
-                            .fromCurrentRequest().path("/instructor/{id}")
+                            .fromCurrentRequest().path("/{courseId}")
                             .buildAndExpand(course.getId()).toUri());
 
                     return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
