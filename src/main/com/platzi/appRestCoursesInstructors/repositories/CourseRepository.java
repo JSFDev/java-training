@@ -1,6 +1,6 @@
-package main.com.platzi.appRestCoursesInstructors.repositories;
+package com.platzi.appRestCoursesInstructors.repositories;
 
-import main.com.platzi.appRestCoursesInstructors.entities.CourseEntity;
+import com.platzi.appRestCoursesInstructors.entities.CourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package main.com.platzi.appRestCoursesInstructors.entities;
+package com.platzi.appRestCoursesInstructors.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

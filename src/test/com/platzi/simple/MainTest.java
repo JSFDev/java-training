@@ -1,4 +1,4 @@
-package test.com.platzi.simple;
+package com.platzi.simple;
 
 public class MainTest {
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
-package test.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.simple.Developer;
-import main.com.platzi.simple.constants.Skills;
+import com.platzi.simple.constants.Skills;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class DeveloperTest {
     }
 
     @Test
-    private void shouldInitializeProperties() {
+    public void shouldInitializeProperties() {
         ArrayList<Skills> myDevSkills = Developer.getDefaultSkillList();
         Developer emilio = new Developer("Emilio Sanchez", 1.85F, (short) 1300, myDevSkills);
         emilio.setMyCalendarBirthDate((short) 1985, (byte) Calendar.DECEMBER, (byte) 11);

@@ -1,4 +1,4 @@
-package main.com.platzi.simple;
+package com.platzi.simple;
 
 public class MessagePojo {
     private String message;

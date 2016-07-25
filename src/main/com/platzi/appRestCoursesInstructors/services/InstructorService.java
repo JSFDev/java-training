@@ -1,8 +1,8 @@
-package main.com.platzi.appRestCoursesInstructors.services;
+package com.platzi.appRestCoursesInstructors.services;
 
-import main.com.platzi.appRestCoursesInstructors.entities.InstructorEntity;
-import main.com.platzi.appRestCoursesInstructors.repositories.InstructorRepository;
-import main.com.platzi.appRestCoursesInstructors.repositories.Validator;
+import com.platzi.appRestCoursesInstructors.entities.InstructorEntity;
+import com.platzi.appRestCoursesInstructors.repositories.InstructorRepository;
+import com.platzi.appRestCoursesInstructors.repositories.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
-package test.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.anahisalgado.asociatividad.DocumentoAsociatividad;
-import main.com.platzi.anahisalgado.conductor.Taxista;
-import main.com.platzi.anahisalgado.vehiculo.Taxi;
+import com.platzi.anahisalgado.asociatividad.DocumentoAsociatividad;
+import com.platzi.anahisalgado.conductor.Taxista;
+import com.platzi.anahisalgado.vehiculo.Taxi;
 import org.junit.Test;
 
 public class TaxistaTest {
@@ -21,7 +21,7 @@ public class TaxistaTest {
     }
 
     @Test
-    private void shouldDisplayDocumentosDeTaxista() {
+    public void shouldDisplayDocumentosDeTaxista() {
         DocumentoAsociatividad dA = new DocumentoAsociatividad(ti, tA);
         dA.mostrarDatosDocumento();
         DocumentoAsociatividad dA2 = new DocumentoAsociatividad(ti, tA2);

@@ -1,6 +1,6 @@
-package main.com.platzi.microservices.rest.servlet.springBoot;
+package com.platzi.microservices.rest.servlet.springBoot;
 
-import main.com.platzi.simple.UserPojo;
+import com.platzi.simple.UserPojo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

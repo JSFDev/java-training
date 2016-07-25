@@ -1,9 +1,9 @@
-package main.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.simple.connection.ConnectDatabase;
-import main.com.platzi.simple.connection.CrudDatabase;
-import main.com.platzi.simple.constants.ConnectionEnum;
-import main.com.platzi.simple.constants.DatabaseEnum;
+import com.platzi.simple.connection.ConnectDatabase;
+import com.platzi.simple.connection.CrudDatabase;
+import com.platzi.simple.constants.ConnectionEnum;
+import com.platzi.simple.constants.DatabaseEnum;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

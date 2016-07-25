@@ -1,4 +1,4 @@
-package main.com.platzi.simple.connection;
+package com.platzi.simple.connection;
 
 import java.sql.Date;
 import java.text.DateFormat;

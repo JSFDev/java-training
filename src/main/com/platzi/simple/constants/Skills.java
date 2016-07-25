@@ -1,4 +1,4 @@
-package main.com.platzi.simple.constants;
+package com.platzi.simple.constants;
 
 import java.util.Objects;
 

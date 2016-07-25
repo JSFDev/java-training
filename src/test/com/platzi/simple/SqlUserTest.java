@@ -1,8 +1,6 @@
-package test.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.simple.SqlUser;
-import main.com.platzi.simple.UserPojo;
-import main.com.platzi.simple.constants.DatabaseEnum;
+import com.platzi.simple.constants.DatabaseEnum;
 import org.junit.Test;
 
 public class SqlUserTest {
@@ -23,13 +21,13 @@ public class SqlUserTest {
     }
 
     @Test
-    private void shouldConnectDatabase() {
+    public void shouldConnectDatabase() {
         rootTheypollLocal.connectMysqlDatabase();
         rootTheypollLocal.closeMysqlDatabase();
     }
 
     @Test
-    private void shouldCheckPersistanceUser() {
+    public void shouldCheckPersistanceUser() {
         UserPojo pepe = new UserPojo(1, 0, "Pepe", "Lopera", "pepe@gmail", "taurus", "1972-12-15");
         rootTheypollLocal.connectMysqlDatabase();
         rootTheypollLocal.insertUser(pepe);

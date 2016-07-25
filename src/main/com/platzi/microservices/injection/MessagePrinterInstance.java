@@ -1,6 +1,6 @@
-package main.com.platzi.microservices.injection;
+package com.platzi.microservices.injection;
 
-import main.com.platzi.microservices.utils.MessageService;
+import com.platzi.microservices.utils.MessageService;
 
 public class MessagePrinterInstance extends MessagePrinter {
     public MessagePrinterInstance(MessageService message) {

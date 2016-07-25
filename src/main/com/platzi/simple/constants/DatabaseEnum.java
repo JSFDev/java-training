@@ -1,4 +1,4 @@
-package main.com.platzi.simple.constants;
+package com.platzi.simple.constants;
 
 public enum DatabaseEnum {
     THEYPOLL_LOCAL("//localhost", ":3306/", "theypoll-refactor");

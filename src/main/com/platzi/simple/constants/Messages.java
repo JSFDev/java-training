@@ -1,4 +1,4 @@
-package main.com.platzi.simple.constants;
+package com.platzi.simple.constants;
 
 public enum Messages {
     UNKNOWN_SERVICE_MESSAGE("Hello dude, I´m a mock."),

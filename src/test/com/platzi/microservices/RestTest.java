@@ -1,11 +1,11 @@
-package test.com.platzi.microservices;
+package com.platzi.microservices;
 
+import com.platzi.simple.UserPojo;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import main.com.platzi.simple.UserPojo;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -18,7 +18,7 @@ public class RestTest {
         this.shouldGetUserPojo();
     };
     private RequestSpecification spec = this.initSpec();
-    private UserPojo mockUser = new UserPojo(1, 0, "Pepe", "Lopera", "pepe@gmail", "taurus", "1972-12-15");
+    private UserPojo testUser = new UserPojo(1, 0, "Pepe", "Lopera", "pepe@gmail", "taurus", "1972-12-15");
 
     private UserPojo getUserRequest(String path, int status) {
         return given()
@@ -45,11 +45,11 @@ public class RestTest {
     }
 
     @Test
-    private void shouldGetUserPojo() {
+    public void shouldGetUserPojo() {
         UserPojo requestUser = getUserRequest("/user", 200);
 
-        assertThat(requestUser.getName()).isEqualTo(mockUser.getName());
-        assertThat(requestUser.getSurname()).isEqualTo(mockUser.getSurname());
-        assertThat(requestUser.getEmail()).isEqualTo(mockUser.getEmail());
+        assertThat(requestUser.getName()).isEqualTo(testUser.getName());
+        assertThat(requestUser.getSurname()).isEqualTo(testUser.getSurname());
+        assertThat(requestUser.getEmail()).isEqualTo(testUser.getEmail());
     }
 }
