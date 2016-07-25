@@ -313,3 +313,9 @@ PREGUNTAS
 
 
 - ¿Qué es el ResponseEntity de Spring MVC?
+
+PROGRAMACION BASADA EN PRUEBAS
+- pruebas unitarias, de integracion, funcionales.
+- las pruebas unitarias testean el comportamiento dentro de una clase. Puede darse el caso de que este integrado por un metodo en concreto, o que se combinen varios metodos para definir la funcionalidad de una clase.
+- Probar la Unidad: Debemos **aislar** las dependencias, metodos y propiuedades de nuerstra clase, que puedan testear un  comportamiento aislado de nuestra clase.
+- MOckito permite aislar una instancia onfigurada por un comportamiento descrito por nuestra implementacion.
