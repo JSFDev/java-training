@@ -1,7 +1,7 @@
-package main.com.platzi.anahisalgado.asociatividad;
+package com.platzi.anahisalgado.asociatividad;
 
-import main.com.platzi.anahisalgado.conductor.Conductor;
-import main.com.platzi.anahisalgado.vehiculo.Vehiculo;
+import com.platzi.anahisalgado.conductor.Conductor;
+import com.platzi.anahisalgado.vehiculo.Vehiculo;
 
 public class DocumentoAsociatividad {
 

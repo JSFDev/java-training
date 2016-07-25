@@ -1,6 +1,6 @@
-package main.com.platzi.microservices.utils;
+package com.platzi.microservices.utils;
 
-import main.com.platzi.simple.constants.Messages;
+import com.platzi.simple.constants.Messages;
 
 public class SadMessageService implements MessageService {
     private static final Messages message = Messages.SAD_SERVICE_MESSAGE;

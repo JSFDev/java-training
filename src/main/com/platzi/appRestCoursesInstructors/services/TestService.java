@@ -1,6 +1,6 @@
-package main.com.platzi.appRestCoursesInstructors.services;
+package com.platzi.appRestCoursesInstructors.services;
 
-import main.com.platzi.simple.constants.Messages;
+import com.platzi.simple.constants.Messages;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

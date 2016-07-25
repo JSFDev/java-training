@@ -1,6 +1,5 @@
-package test.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.simple.MessagePojo;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -28,14 +27,14 @@ public class LambdaExpressionTest {
     }
 
     @Test
-    private void shouldOrderMessagesByCompareSize() {
+    public void shouldOrderMessagesByCompareSize() {
         Comparator<MessagePojo> compareSize = (MessagePojo m1, MessagePojo m2) -> m1.getSize() - m2.getSize();
         this.listMessages.sort(compareSize);
         this.listMessages.forEach(message -> System.out.println(message.getMessage()));
     }
 
     @Test
-    private void shouldOrderMessagesByTextContains() {
+    public void shouldOrderMessagesByTextContains() {
         String filterText = "usuario";
         List<MessagePojo> filterList = this.listMessages.stream()
                 .filter(message -> message.getMessage().contains(filterText))

@@ -1,6 +1,6 @@
-package main.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.simple.constants.Messages;
+import com.platzi.simple.constants.Messages;
 
 public class UserPojo {
     private int country;

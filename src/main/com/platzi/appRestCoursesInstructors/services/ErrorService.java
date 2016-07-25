@@ -1,4 +1,4 @@
-package main.com.platzi.appRestCoursesInstructors.services;
+package com.platzi.appRestCoursesInstructors.services;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

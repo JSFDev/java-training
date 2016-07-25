@@ -1,11 +1,11 @@
-package test.com.platzi.microservices;
+package com.platzi.microservices;
 
-import main.com.platzi.microservices.injection.MessagePrinter;
-import main.com.platzi.microservices.injection.MessagePrinterBean;
-import main.com.platzi.microservices.injection.MessagePrinterComponent;
-import main.com.platzi.microservices.injection.MessagePrinterInstance;
-import main.com.platzi.microservices.utils.HappyMessageService;
-import main.com.platzi.microservices.utils.SadMessageService;
+import com.platzi.microservices.injection.MessagePrinter;
+import com.platzi.microservices.injection.MessagePrinterBean;
+import com.platzi.microservices.injection.MessagePrinterComponent;
+import com.platzi.microservices.injection.MessagePrinterInstance;
+import com.platzi.microservices.utils.HappyMessageService;
+import com.platzi.microservices.utils.SadMessageService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -28,7 +28,7 @@ public class CDITest {
     }
 
     @Test
-    private void shouldSetMoodMessageByInstance() {
+    public void shouldSetMoodMessageByInstance() {
         printer = new MessagePrinterInstance(new HappyMessageService());
         printer.printMessage();
         printer.setMessage(new SadMessageService());
@@ -36,7 +36,7 @@ public class CDITest {
     }
 
     @Test
-    private void shouldSetMoodMessageByBean() {
+    public void shouldSetMoodMessageByBean() {
         // factoria de Beans, del Tipo de la dependencia a injectar: MessagePrinter printer
         ApplicationContext printerFactory = new AnnotationConfigApplicationContext(MessagePrinterBean.class);
         // Componente/controlador que injecta la dependencia dada por la factoria de Beans

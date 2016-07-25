@@ -1,6 +1,6 @@
-package main.com.platzi.microservices.injection;
+package com.platzi.microservices.injection;
 
-import main.com.platzi.microservices.utils.MessageService;
+import com.platzi.microservices.utils.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

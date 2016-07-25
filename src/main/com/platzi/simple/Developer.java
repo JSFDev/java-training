@@ -1,7 +1,7 @@
-package main.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.simple.constants.Messages;
-import main.com.platzi.simple.constants.Skills;
+import com.platzi.simple.constants.Messages;
+import com.platzi.simple.constants.Skills;
 
 import java.io.BufferedReader;
 import java.io.File;

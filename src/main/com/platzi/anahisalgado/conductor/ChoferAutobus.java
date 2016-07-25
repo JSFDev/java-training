@@ -1,6 +1,6 @@
-package main.com.platzi.anahisalgado.conductor;
+package com.platzi.anahisalgado.conductor;
 
-import main.com.platzi.anahisalgado.vehiculo.Bus;
+import com.platzi.anahisalgado.vehiculo.Bus;
 
 public class ChoferAutobus extends Conductor {
 

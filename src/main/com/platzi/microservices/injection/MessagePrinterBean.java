@@ -1,9 +1,9 @@
-package main.com.platzi.microservices.injection;
+package com.platzi.microservices.injection;
 
-import main.com.platzi.microservices.utils.HappyMessageService;
-import main.com.platzi.microservices.utils.MessageService;
-import main.com.platzi.microservices.utils.SadMessageService;
-import main.com.platzi.simple.constants.Messages;
+import com.platzi.microservices.utils.HappyMessageService;
+import com.platzi.microservices.utils.MessageService;
+import com.platzi.microservices.utils.SadMessageService;
+import com.platzi.simple.constants.Messages;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Primary;
  * Interfaz de configurecion de dependencias (MessageServices) -> Factoria
  */
 @Configuration
-@ComponentScan(basePackages = "main.com.platzi.microservices.injection")
+@ComponentScan(basePackages = "com.platzi.microservices.injection")
 public class MessagePrinterBean {
 
     @Bean(name = "mockMessageService")

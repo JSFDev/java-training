@@ -1,4 +1,4 @@
-package main.com.platzi.microservices.rest.filter.springBoot;
+package com.platzi.microservices.rest.filter.springBoot;
 
 import org.springframework.stereotype.Component;
 

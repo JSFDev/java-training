@@ -1,4 +1,4 @@
-package main.com.platzi.microservices;
+package com.platzi.microservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

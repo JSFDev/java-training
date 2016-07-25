@@ -1,7 +1,7 @@
-package main.com.platzi.microservices.rest.servlet.jee;
+package com.platzi.microservices.rest.servlet.jee;
 
-import main.com.platzi.microservices.utils.JsonParse;
-import main.com.platzi.simple.UserPojo;
+import com.platzi.microservices.utils.JsonParse;
+import com.platzi.simple.UserPojo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;

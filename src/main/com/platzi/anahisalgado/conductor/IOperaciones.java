@@ -1,4 +1,4 @@
-package main.com.platzi.anahisalgado.conductor;
+package com.platzi.anahisalgado.conductor;
 
 public interface IOperaciones {
 

@@ -1,4 +1,4 @@
-package main.com.platzi.anahisalgado.vehiculo;
+package com.platzi.anahisalgado.vehiculo;
 
 import java.util.ArrayList;
 

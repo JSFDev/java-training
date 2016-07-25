@@ -1,6 +1,6 @@
-package main.com.platzi.anahisalgado.conductor;
+package com.platzi.anahisalgado.conductor;
 
-import main.com.platzi.anahisalgado.vehiculo.Taxi;
+import com.platzi.anahisalgado.vehiculo.Taxi;
 
 public class Taxista extends Conductor {
 

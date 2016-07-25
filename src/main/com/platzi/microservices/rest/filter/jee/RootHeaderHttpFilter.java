@@ -1,4 +1,4 @@
-package main.com.platzi.microservices.rest.filter.jee;
+package com.platzi.microservices.rest.filter.jee;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

@@ -1,4 +1,4 @@
-package main.com.platzi.microservices.utils;
+package com.platzi.microservices.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONException;

@@ -1,8 +1,8 @@
-package main.com.platzi.simple.connection;
+package com.platzi.simple.connection;
 
-import main.com.platzi.simple.constants.ConnectionEnum;
-import main.com.platzi.simple.constants.DatabaseEnum;
-import main.com.platzi.simple.constants.Messages;
+import com.platzi.simple.constants.ConnectionEnum;
+import com.platzi.simple.constants.DatabaseEnum;
+import com.platzi.simple.constants.Messages;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

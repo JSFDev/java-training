@@ -1,7 +1,6 @@
-package test.com.platzi.simple;
+package com.platzi.simple;
 
-import main.com.platzi.simple.Message;
-import main.com.platzi.simple.constants.Messages;
+import com.platzi.simple.constants.Messages;
 import org.junit.Test;
 
 import java.util.Scanner;
@@ -24,7 +23,7 @@ public class MessageTest {
     }
 
     @Test
-    private void shouldPrintMessageByConsoleArguments() {
+    public void shouldPrintMessageByConsoleArguments() {
         try {
             Thread.sleep(sleepThread);
             System.out.println(Messages.PRINT_SCANNER.getValue());
@@ -40,7 +39,7 @@ public class MessageTest {
     }
 
     @Test
-    private void shouldPrintMessageByProgramArguments(String[] args) {
+    public void shouldPrintMessageByProgramArguments(String[] args) {
         try {
             Message message = new Message(args);
             message.setMessageByArguments();
@@ -52,7 +51,7 @@ public class MessageTest {
     }
 
     @Test
-    private void shouldPrintGreetingMessage(String[] args) {
+    public void shouldPrintGreetingMessage(String[] args) {
         Message message = new Message(args);
         message.setMessageByArguments();
         System.out.println(message.getOutput());

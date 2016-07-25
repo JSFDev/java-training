@@ -1,4 +1,4 @@
-package main.com.platzi.simple.constants;
+package com.platzi.simple.constants;
 
 public enum ConnectionEnum {
     MYSQL_DRIVER("com.mysql.jdbc.Driver", "jdbc:mysql:", "mysql"),
